@@ -1,0 +1,57 @@
+//<FORM>
+// Снипет (HTML):
+.form {
+
+	&__line {
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("margin-bottom", 15, 10, $containerWidth, $minWidth, 1);
+	}
+
+	&__text {
+		color: $whiteColor;
+		margin-bottom: 8px;
+	}
+
+	&__privacy {
+		color: $whiteColor;
+		max-width: 415px;
+		a {
+			text-decoration: underline;
+		}
+	}
+}
+
+//</FORM>
+
+// <BUTTONS>
+// Снипет (HTML): btn
+@import "button";
+
+// <INPUTS>
+// Снипет (HTML): inp
+@import "input";
+
+// <CHECK>
+// Снипет (HTML): chk
+// @import "checkbox";
+
+// <RADIO>
+// Снипет (HTML): opt
+// @import "radio";
+
+// <SELECT>
+// Снипет (HTML): sel
+// @import "select";
+
+// <RATING>
+// Снипет (HTML): rating
+// @import "rating";
+
+// <QUANTITY>
+// Снипет (HTML): qa
+// @import "quantity";
+
+// <RANGE>
+// Снипет (HTML):
+// @import "range";

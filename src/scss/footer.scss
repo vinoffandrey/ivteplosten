@@ -1,0 +1,253 @@
+//====================================================================================================
+.footer {
+	@include adaptiveValue("padding-top", 100, 40, $containerWidth, $minWidth, 1);
+	@include adaptiveValue("padding-bottom", 32, 16, $containerWidth, $minWidth, 1);
+	background-color: $greyLightColor;
+	position: relative;
+	z-index: 0;
+	&__container {
+		display: flex;
+		position: relative;
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__left {
+		flex: 0 1 50%;
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+		}
+		
+	}
+
+	&__title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 23, 18, $containerWidth, $minWidth, 1);
+		line-height: 125%;
+		@include adaptiveValue("margin-bottom", 20, 15, $containerWidth, $minWidth, 1);
+	}
+
+	&__contacts {
+			@include adaptiveValue("margin-bottom", 23, 15, $containerWidth, $minWidth, 1);
+		a {
+			padding-left: 32px;
+			position: relative;
+			span {
+				font-family: $fontFamily;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		&:before {
+			position: absolute;
+			left: 0;
+			top: 1px;
+		}
+		}
+	}
+
+	&__messangers {
+		a {
+			display: inline-block;
+			transition: all .3s ease 0s;
+				@media (any-hover: hover){
+					&:hover{
+						transform: scale(1.05);
+					} 
+				}
+		}
+		&.-join {
+			flex: 1 1 auto;
+		}
+		@include adaptiveValue("margin-bottom", 95, 30, $containerWidth, $minWidth, 1);
+	}
+
+	&__telegram {
+		color: #30A9DB;
+		margin-top: 7px;
+	}
+
+	&__whatsapp {
+		color: #2CB742;
+	}
+
+	&__viber {
+		color: #7360F2;
+	}
+
+	&__privacy {
+		@include adaptiveValue("margin-bottom", 60, 30, $containerWidth, $minWidth, 1);
+		a {
+			font-weight: 500;
+			@include adaptiveValue("font-size", 16, 14, $containerWidth, $minWidth, 1);
+			line-height: 145%;
+			text-decoration: underline;
+		}
+	}
+
+	&__text {
+		p {
+			font-weight: 500;
+			@include adaptiveValue("font-size", 16, 14, $containerWidth, $minWidth, 1);
+			line-height: 130%;
+			opacity: .4;
+			display: flex;
+		}
+		a {
+			display: flex;
+			align-items: center;
+			img {
+				margin-left: 5px;
+			}
+			picture {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+
+	&__right {
+		flex: 0 1 50%;
+		display: flex;
+		flex-direction: column;
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+			margin-top: 30px;
+		}
+	}
+
+	&__timetable {
+		@include adaptiveValue("margin-bottom", 32, 16, $containerWidth, $minWidth, 1);
+		p {
+			font-weight: 500;
+			@include adaptiveValue("font-size", 16, 14, $containerWidth, $minWidth, 1);
+			line-height: 145%;
+			span {
+				font-weight: 700;
+			}
+		}
+	}
+
+	&__odnoklassniki {
+		color: #F68633;
+		margin-top: 7px;
+	}
+
+	&__vk {
+		color: #2787F4;
+	}
+	&__back {
+		position: absolute;
+		width: 65px;
+		height: 65px;
+		background-color: #FFFFFF;
+		border-radius: 100%;
+		right: 15px;
+		bottom: 65%;
+		cursor: pointer;
+		display: inline-block;
+		@media(max-width: $tablet) {
+			width: 55px;
+			height: 55px;
+		}
+		@media(max-width: $mobile) {
+			bottom: 30%;
+		}
+		@media(max-width: $mobileSmall) {
+			width: 45px;
+			height: 45px;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: 25px;
+			left: 28px;
+			height: 16px;
+			width: 8px;
+			background-image: url('../img/9_works/arrow_black.svg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			transform: rotate(90deg);
+			@media(max-width: $tablet) {
+				top: 20px;
+				left: 24px;
+			}
+			@media(max-width: $mobileSmall) {
+				top: 15px;
+				left: 19px;
+			}
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			top: -5px;
+			left: -5px;
+			height: 75px;
+			width: 75px;
+			background-color: $blueColor;
+			opacity: .5;
+			filter: blur(14.5px);
+			border-radius: 50%;
+			z-index: -1;
+			@media(max-width: $tablet) {
+				width: 65px;
+				height: 65px;
+			}
+			@media(max-width: $mobileSmall) {
+				width: 55px;
+				height: 55px;
+			}
+		}
+	}
+}
+.text-3 {
+}
+.icon-map {
+	&:before {
+		font-size: 16px;
+	}
+}
+.icon-mail {
+	&:before {
+		font-size: 16px;
+	}
+}
+.icon-phone {
+	&:before {
+		font-size: 18px;
+	}
+}
+.icon-telegram {
+	&:before {
+		@include adaptiveValue("font-size", 42, 30, $containerWidth, $minWidth, 1);
+	}
+}
+.icon-whatsapp {
+	@include adaptiveValue("margin-left", 35, 15, $containerWidth, $minWidth, 1);
+	@include adaptiveValue("margin-right", 35, 15, $containerWidth, $minWidth, 1);
+	&:before {
+		@include adaptiveValue("font-size", 42, 30, $containerWidth, $minWidth, 1);
+	}
+}
+.icon-viber {
+	&:before {
+		@include adaptiveValue("font-size", 42, 30, $containerWidth, $minWidth, 1);
+	}
+}
+.icon-odnoklassniki {
+	@include adaptiveValue("margin-right", 35, 15, $containerWidth, $minWidth, 1);
+	&:before {
+		@include adaptiveValue("font-size", 42, 30, $containerWidth, $minWidth, 1);
+	}
+}
+.icon-vk {
+	&:before {
+		@include adaptiveValue("font-size", 42, 30, $containerWidth, $minWidth, 1);
+	}
+}
+
+//====================================================================================================

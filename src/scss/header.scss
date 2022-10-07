@@ -1,0 +1,331 @@
+//====================================================================================================
+.header {
+	background-color: #FFFFFF;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		@include adaptiveValue("padding-top", 20, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 12, 10, $containerWidth, $minWidth, 1);
+	}
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 10px;
+		cursor: pointer;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		img {
+			@include adaptiveValue("width", 75, 50, $containerWidth, $minWidth, 1);
+			@include adaptiveValue("height", 75, 50, $containerWidth, $minWidth, 1);
+		}
+		@media (max-width: 1100px) {
+			order: 1;
+			flex: 1 1 auto;
+			justify-content: flex-start;
+		}
+	}
+
+	&__title {
+		font-weight: 600;
+		@include adaptiveValue("font-size", 24.473, 18, $containerWidth, $minWidth, 1);
+		line-height: 130%;
+		color: #116DB7;
+	}
+
+	&__menu {
+		display: flex;
+		align-items: center;
+		flex: 0 1 625px;
+		justify-content: space-between;
+		@media (max-width: 1100px) {
+			order: 3;
+			flex: 0 1 auto;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__dropdown {
+		visibility: hidden;
+		opacity: 0;
+		position: absolute;
+		@include adaptiveValue("left", 10, 5, $containerWidth, $minWidth, 1);
+		width: 100%;
+		background-color: $whiteColor;
+		@include adaptiveValue("padding", 20, 5, $containerWidth, $minWidth, 1);
+		box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 1px;
+		@include adaptiveValue("width", 184, 150, $containerWidth, $minWidth, 1);
+		margin-top: 13px;
+		@media(max-width: 1100px) {
+			padding: 10px;
+		}
+		&-triangle {
+			width: 16px;
+			height: 11px;
+			position: absolute;
+			top: -10px;
+			left: 27px;
+			box-shadow: 0 16px 10px -17px rgba(0,0,0,0.25);
+			clip: rect(auto, auto, auto, auto);
+			&:after {
+				content: "";
+				position: absolute;
+				width: 16px;
+				height: 16px;
+				background-color: $whiteColor;
+				transform: rotate(45deg); /* Не забываем про префиксы */
+				top: 6px;
+				left: 0;
+				box-shadow: 0 0 3px rgba(0,0,0,0.25);
+			}
+		}
+		li {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 18, 9, $containerWidth, $minWidth, 1);
+			}
+			text-align: left!important;
+		}
+	}
+}
+.menu {
+
+	&__icon {
+	}
+
+	&__body {
+		width: 100%;
+		@media(max-width: 1100px) {
+			padding: 30px 0;
+			margin-left: 0;
+			position: fixed;
+			transform: translateY(-300%);
+			visibility: hidden;
+			opacity: 0;
+			background-color: $whiteColor;
+			transition: transform .3s ease 0s;
+			.menu-open & {
+				transform: translateY(0);
+				visibility: visible;
+				opacity: 1;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				height: 100vh;
+				.menu__list {
+					flex-direction: column;
+					justify-content: flex-start;
+					li {
+						text-align: center;
+						margin: 10px 0;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		flex: 0 1 625px;
+		@media (max-width: 1100px) {
+			flex: 0 1 auto;
+		}
+		.about {
+			position: relative;
+			@media (any-hover: hover){
+				a {
+					padding-bottom: 20px;
+				}
+				&:hover{
+					.header__dropdown {
+						visibility: visible;
+						opacity: 1;
+					}
+					.dropdown__button::after {
+						transform: rotate(45deg);
+						@media(max-width: 1105px) {
+							transform: rotate(-45deg);
+						}
+					}
+					.dropdown__button::before {
+						transform: rotate(-45deg);
+						@media(max-width: 1105px) {
+							transform: rotate(45deg);
+						}
+					}
+				} 
+			}
+			.dropdown__button {
+				position: relative;
+				width: 10px;
+				height: 10px;
+				top: -4px;
+				left: -5px;
+				&._spoller-active {
+					&:after {
+						transform: rotate(45deg);
+					}
+					&:before {
+						transform: rotate(-45deg);
+					}
+				}
+				&:after {
+					content: "";
+					transform: rotate(-45deg);
+					position: absolute;
+					top: 4px;
+					left: 4px;
+					width: 6px;
+					height: 1px;
+					background-color: $mainColor;
+					transition: all .3s ease 0s;
+					@media(max-width: 1100px) {
+						top: 12px;
+						width: 12px;
+						left: 10px;
+					}
+				}
+				&:before {
+					content: "";
+					transform: rotate(45deg);
+					position: absolute;
+					top: 4px;
+					left: 0;
+					width: 6px;
+					height: 1px;
+					background-color: $mainColor;
+					transition: all .3s ease 0s;
+					@media(max-width: 1100px) {
+						top: 12px;
+						width: 12px;
+						left: 2px;
+					}
+				}
+				@media(max-width: 1100px) {
+					position: absolute;
+					width: 25px;
+					height: 25px;
+					left: auto;
+					right: -25px;
+					top: 0;
+					background-color: $greyLightColor;
+					border-radius: 5px;
+				}
+			}
+		}
+	}
+
+	&__link {
+		transition: all .3s ease 0s;
+		@include adaptiveValue("margin-left", 5, 0, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-right", 5, 0, $containerWidth, $minWidth, 1);
+		cursor: pointer;
+		@media (any-hover: hover){
+			&:hover{
+				color: $blueColor; 
+			} 
+		}
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		flex: 0 0 auto;
+		margin-left: 10px;
+		a {
+			cursor: pointer;
+		}
+		@media (max-width: 1100px) {
+			order: 2;
+			margin-right: 30px;
+		}
+		@media (max-width: 560px) {
+			margin: 20px 0 0;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+}
+.dropdown__button._spoller-active ~ .header__dropdown {
+	visibility: visible;
+	opacity: 1;
+}
+//====================================================================================================
+
+
+//Burger
+
+.icon-menu {
+	display: none;
+	@media (max-width: 1100px) {
+		background-color: $greenColor;
+		border-radius: 5px;
+		display: block;
+		position: relative;
+		flex: 0 0 rem(40);
+		width: rem(40);
+		height: rem(40);
+		cursor: pointer;
+		z-index: 5;
+		transition: all .3s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				background-color: $blueColor; 
+			} 
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			left: rem(7.5);
+			position: absolute;
+			width: rem(25);
+			height: rem(3);
+			background-color: #fff;
+		}
+		&::before {
+			top: rem(10);
+		}
+		&::after {
+			bottom: rem(10);
+		}
+		span {
+			top: calc(50% - rem(1));
+		}
+		.menu-open & {
+			background-color: $blueColor; 
+			transition: all .3s ease 0s;
+			@media (any-hover: hover){
+				&:hover{
+					background-color: $greenColor; 
+				} 
+			}
+			span {
+				transform: scale(0);
+			}
+			&::before {
+				transform: rotate(-45deg);
+				top: calc(50% - rem(1));
+			}
+			&::after {
+				transform: rotate(45deg);
+				bottom: calc(50% - rem(1));
+			}
+		}
+	}
+}

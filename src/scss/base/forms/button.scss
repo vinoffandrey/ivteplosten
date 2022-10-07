@@ -1,0 +1,9 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+
+.form {
+	&__button {
+		@include adaptiveValue("margin-top", 30, 15, $containerWidth, $minWidth, 1);
+	}
+}
+

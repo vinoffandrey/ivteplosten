@@ -1,0 +1,95 @@
+// Заголовки, общие БЄМ блоки и проче...
+
+//Стили шрифтов
+//========================================================================================================================================================
+.title-1 {
+	font-weight: 600;
+	@include adaptiveValue("font-size", 55, 35, $containerWidth, $minWidth, 1);
+	@include adaptiveValue("line-height", 64, 45, $containerWidth, $minWidth, 1);
+	color: $mainColor;
+}
+.title-2 {
+	font-weight: 700;
+	@include adaptiveValue("font-size", 41, 21, $containerWidth, $minWidth, 1);
+	line-height: 125%;
+	color: $mainColor;
+}
+.title-3 {
+	font-weight: 600;
+	@include adaptiveValue("font-size", 28, 18, $containerWidth, $minWidth, 1);
+	line-height: 146.28%;
+	color: $mainColor;
+}
+.text-1 {
+	font-weight: 500;
+	@include adaptiveValue("font-size", 23, 17, $containerWidth, $minWidth, 1);
+	line-height: 125%;
+	&.bold {
+		font-weight: 700;
+	}
+}
+.text-2 {
+	font-weight: 400;
+	@include adaptiveValue("font-size", 18, 16, $containerWidth, $minWidth, 1);
+	line-height: 130%;
+	&.bold {
+		font-weight: 700;
+	}
+}
+.text-3 {
+	font-weight: 500;
+	@include adaptiveValue("font-size", 16, 14, $containerWidth, $minWidth, 1);
+	line-height: 130%;
+	&.bold {
+		font-weight: 700;
+	}
+}
+.text-4 {
+	font-weight: 500;
+	@include adaptiveValue("font-size", 12, 11, $containerWidth, $minWidth, 1);
+	line-height: 145%;
+}
+.numbers {
+	font-weight: 700;
+	@include adaptiveValue("font-size", 35, 25, $containerWidth, $minWidth, 1);
+	line-height: 125%;
+	color: $mainColor;
+}
+
+
+//Стили кнопки
+//========================================================================================================================================================
+
+.button {
+	font-weight: 700;
+	font-size: 16px;
+	@include adaptiveValue("font-size", 16, 14, $containerWidth, $minWidth, 1);
+	line-height: 125%;
+	@include adaptiveValue("padding-top", 15, 11, $containerWidth, $minWidth, 1);
+	@include adaptiveValue("padding-right", 20, 16, $containerWidth, $minWidth, 1);
+	@include adaptiveValue("padding-bottom", 15, 11, $containerWidth, $minWidth, 1);
+	@include adaptiveValue("padding-left", 20, 16, $containerWidth, $minWidth, 1);
+	color: $whiteColor;
+	background-color: $greenColor;
+	transition: all .3s ease 0s;
+	display: inline-block;
+	@media (any-hover: hover){
+		&:hover{
+			background-color: $blueColor; 
+		} 
+	}
+	&:active {
+		background-color: $blueColor;
+	}
+	&.not_active {
+		background-color: $whiteColor;
+		color: $mainColor;
+		@media (any-hover: hover){
+			&:hover{
+				background-color: $greenColor;
+				color: $whiteColor; 
+			} 
+		}
+	}
+}
+//========================================================================================================================================================

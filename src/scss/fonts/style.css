@@ -1,0 +1,55 @@
+@font-face {
+	font-family: 'icons';
+	src:  url('fonts/icons.eot?m055ex');
+	src:  url('fonts/icons.eot?m055ex#iefix') format('embedded-opentype'),
+	  url('fonts/icons.ttf?m055ex') format('truetype'),
+	  url('fonts/icons.woff?m055ex') format('woff'),
+	  url('fonts/icons.svg?m055ex#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+ }
+ 
+ [class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icons' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+ 
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+ }
+ 
+ .icon-phone:before {
+	content: "\e900";
+ }
+ .icon-mail:before {
+	content: "\e901";
+ }
+ .icon-map:before {
+	content: "\e902";
+ }
+ .icon-vk:before {
+	content: "\e903";
+ }
+ .icon-odnoklassniki:before {
+	content: "\e904";
+ }
+ .icon-viber:before {
+	content: "\e905";
+ }
+ .icon-whatsapp:before {
+	content: "\e906";
+ }
+ .icon-telegram:before {
+	content: "\e907";
+ }
+ .icon-dekor:before {
+	content: "\e908";
+ }
+ 

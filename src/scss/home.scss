@@ -1,0 +1,2001 @@
+//====================================================================================================
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+//====================================================================================================
+
+
+// Main__section
+//=======================================================================================================
+.page {
+	@include adaptiveValue("margin-top", 99, 69, $containerWidth, $minWidth, 1);
+}
+.main {
+
+	&__section {
+		background-image: url('../img/1_main_block/background-image.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		@include adaptiveValue("height", 700, 400, $containerWidth, $minWidth, 1);
+		background-position: center;
+		@media(max-width: $tablet) {
+			background-position: 65% center;
+		}
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	&__body {
+		flex: 1 1 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__title {
+		max-width: 600px;
+		animation: fadeIn  2s ease-in-out;
+		animation-delay: 0;
+	}
+
+	&__text {
+		max-width: 270px;
+		@include adaptiveValue("margin-top", 20, 15, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-bottom", 54, 35, $containerWidth, $minWidth, 1);
+		animation: fadeIn  2s ease-in-out;
+	}
+
+	&__button {
+		animation: fadeIn  2s ease-in-out;
+		a {
+			cursor: pointer;
+			display: inline-block;
+		}
+	}
+
+	&__bottom {
+		flex: 0 1 auto;
+		display: flex;
+		background-color: $whiteColor;
+		@include adaptiveValue("margin-bottom", -90, -60, $containerWidth, $minWidth, 1);
+		@media(max-width: $tablet) {
+			margin-bottom: 0!important;
+			margin-left: -15px;
+			margin-right: -15px;
+		}
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	&__item {
+		flex: 0 1 25%;
+		display: flex;
+		flex-direction: column;
+		animation: fadeIn  3s ease-in-out;
+		&:not(:last-child) {
+			border-right: 1px solid #E2E2E2;
+		}
+		p {
+			@include adaptiveValue("padding", 30, 5, $containerWidth, $minWidth, 1);
+			@include adaptiveValue("margin-bottom", 56, 10, $containerWidth, $minWidth, 1);
+			flex: 1 1 auto;
+			@media(max-width: $tablet) {
+				@include adaptiveValue("font-size", 25, 18, $containerWidth, $minWidth, 1);
+				@include adaptiveValue("padding", 15, 5, $containerWidth, $minWidth, 1);
+				margin-bottom: 0!important;
+			}
+			@media(max-width:$mobileSmall) {
+				padding-top: 10px;
+			}
+		}
+		span {
+			@include adaptiveValue("padding-left", 30, 15, $containerWidth, $minWidth, 1);
+			@include adaptiveValue("padding-right", 30, 15, $containerWidth, $minWidth, 1);
+			padding-bottom: 6px;
+			display: inline-block;
+			flex: 0 1 auto;
+			@media(max-width: $tablet) {
+				@include adaptiveValue("padding-left", 15, 5, $containerWidth, $minWidth, 1);
+				@include adaptiveValue("padding-right", 15, 5, $containerWidth, $minWidth, 1);
+			}
+			@media(max-width:$mobileSmall) {
+				padding-bottom: 10px;
+			}
+		}
+		@media(max-width: $mobile) {
+			flex: 1 1 30%;
+			text-align: center;
+			&:nth-child(4), &:nth-child(2) {
+				border-top: 1px solid #E2E2E2!important;
+				border-bottom: 1px solid #E2E2E2!important;
+			}
+			&:nth-child(2), &:nth-child(5) {
+				border-right: none!important;
+			}
+			&:nth-child(1) {
+				order: 1;
+			}
+			&:nth-child(2) {
+				order: 5;
+			}
+			&:nth-child(3) {
+				order: 2;
+			}
+			&:nth-child(4) {
+				order: 4;
+			}
+			&:nth-child(5) {
+				order: 3;
+			}
+		}
+	}
+}
+
+
+
+// Services_section
+//=======================================================================================================
+
+
+
+
+
+.services {
+
+	&__section {
+		@include adaptiveValue("padding-top", 218, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 170, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+	}
+
+	&__title {
+		position: relative;
+		&._watcher-view {
+			animation: fadeIn  2s ease-in-out;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: -35px;
+			left: 0;
+			width: 55px;
+			height: 25px;
+			background-image: url('../img/4_advantages/dekor.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			@media(max-width: $mobileSmall) {
+				background-size: 70%;
+				top: -25px;
+			}
+		}
+	}
+
+	&__body {
+		@include adaptiveValue("margin-top", 50, 25, $containerWidth, $minWidth, 1);
+		display: grid;
+		@include adaptiveValue("gap", 20, 10, $containerWidth, $minWidth, 1);
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	}
+
+	&__item {
+		position: relative;
+		padding: 0 0 27% 0;
+		grid-column: span 1;
+		height: 160px;
+		cursor: pointer;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		@media(max-width: 600px) {
+			grid-column: span 2;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(101.54deg, rgba(0, 0, 0, 0.42) 20.42%, rgba(0, 0, 0, 0) 79.56%);
+		}
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		&.big__img {
+			grid-column: span 2;
+			grid-row: span 2;
+			height: 340px;
+			@media(max-width: 600px) {
+				grid-row: span 1;
+				height: 160px;
+			}
+		}
+		&.long__img {
+			grid-column: span 2;
+			height: 160px;
+			img {
+				height: 160px;
+			}
+			&:after {
+				height: 160px;
+			}
+			@media(max-width: 1100px) {
+				grid-column: span 1;
+			}
+			@media(max-width: 600px) {
+				grid-column: span 2;
+			}
+		}
+		@media (any-hover: hover){
+			&:hover{
+				.services__more {
+					opacity: 1;
+					visibility: visible;
+				} 
+			} 
+		}
+		@media (hover: none) {
+			.services__more {
+				opacity: 1;
+				visibility: visible;
+			}
+	  }
+	}
+
+	&__text {
+		color: $whiteColor;
+		position: absolute;
+		z-index: 1;
+		@include adaptiveValue("top", 20, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("left", 20, 10, $containerWidth, $minWidth, 1);
+		@media(max-width: 600px) {
+			padding-right: 20px;
+		}
+	}
+
+	&__more {
+		color: $whiteColor;
+		opacity: 0;
+		visibility: hidden;
+		transition: all .3s ease 0s;
+		position: absolute;
+		@include adaptiveValue("bottom", 15, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("left", 20, 10, $containerWidth, $minWidth, 1);
+		padding-right: 20px;
+		z-index: 1;
+		&:after {
+			content: "";
+			position: absolute;
+			top: 5px;
+			right: 0;
+			width: 12px;
+			height: 12px;
+			background-image: url('../img/2_services/arrow.svg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			@media(max-width: $tablet) {
+				top: 3px;
+			}
+		}
+	}
+}
+
+
+
+// Column__section
+//=======================================================================================================
+
+
+.column {
+
+	&__section {
+		background-color: $blueColor;
+		@include adaptiveValue("padding-top", 89, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 85, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		display: flex;
+		gap: 20px;
+		justify-content: space-between;
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__item {
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		flex: 0 1 21%;
+		@media(max-width: $mobile) {
+			flex: 0 1 40%;
+		}
+		@media(max-width: $mobileSmall) {
+			flex: 1 1 100%;
+		}
+		&:last-child {
+			.column__picture {
+				@media(max-width: $mobileSmall) {
+					width: 17%;
+				}
+			}
+		}
+	}
+
+	&__picture {
+		max-width: 100%;
+		height: auto;
+		@media(max-width: $mobileSmall) {
+			width: 20%;
+			height: auto;
+		}
+		
+	}
+
+	&__title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 18, 16, $containerWidth, $minWidth, 1);
+		line-height: 130%;
+		@include adaptiveValue("margin-top", 22, 15, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-bottom", 15, 8, $containerWidth, $minWidth, 1);
+	}
+
+	&__text {
+	}
+}
+
+
+// Advantages__section
+//=======================================================================================================
+
+
+.advantages {
+
+	&__section {
+		background-color: $whiteColor;
+		@include adaptiveValue("padding-top", 170, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 170, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+	}
+
+	&__top {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&:after {
+			content: "";
+			position: absolute;
+			top: -35px;
+			left: 0;
+			width: 55px;
+			height: 25px;
+			background-image: url('../img/4_advantages/dekor.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			@media(max-width: $mobileSmall) {
+				background-size: 70%;
+				top: -25px;
+			}
+		}
+		@media(max-width: $tablet) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__title {
+		flex: 0 1 355px;
+		margin-right: 20px;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		@media(max-width: $tablet) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__text {
+		flex: 0 1 610px;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		@media(max-width: $tablet) {
+			flex: 1 1 100%;
+			margin-top: 10px;
+		}
+		span {
+			font-weight: 700;
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		@include adaptiveValue("margin-top", 45, 20, $containerWidth, $minWidth, 1);
+		@media(max-width: $tablet) {
+			gap: 15px;
+		}
+	}
+
+	&__item {
+		flex: 1 1 23.76%;
+		min-width: 230px;
+		background-color: $greyLightColor;
+		@include adaptiveValue("padding-top", 20, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 20, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-right", 25, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-left", 25, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("height", 220, 150, $containerWidth, $minWidth, 1);
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__picture {
+	
+	}
+
+	&__name {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 18, 16, $containerWidth, $minWidth, 1);
+		line-height: 130%;
+		flex: 1 1 auto;
+		display: flex;
+		align-items: flex-end;
+	}
+}
+
+
+// Zamer__section
+//=======================================================================================================
+
+
+
+.zamer {
+
+	&__section {
+		background-image: url('../img/5_zamer/background-image.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		@include adaptiveValue("padding-top", 100, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 100, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		display: flex;
+		@include adaptiveValue("gap", 70, 20, $containerWidth, $minWidth, 1);
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__left {
+		flex: 0 1 560px;
+		margin-top: 10px;
+		@media(max-width: $mobile) {
+		
+		}
+	}
+
+	&__title {
+		color: $whiteColor;
+		@include adaptiveValue("margin-bottom", 20, 10, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__text {
+		color: $whiteColor;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__right {
+		flex: 0 1 auto;
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+}
+
+// Stages__section
+//=======================================================================================================
+
+
+
+.stages {
+
+	&__section {
+		background-color: $whiteColor;
+		@include adaptiveValue("padding-top", 170, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 170, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+	}
+
+	&__title {
+		position: relative;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: -35px;
+			left: 0;
+			width: 55px;
+			height: 25px;
+			background-image: url('../img/6_cost/dekor.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			@media(max-width: $mobileSmall) {
+				background-size: 70%;
+				top: -25px;
+			}
+		}
+	}
+
+	&__body {
+		@include adaptiveValue("margin-top", 30, 10, $containerWidth, $minWidth, 1);
+	}
+
+	&__line {
+		display: flex;
+		@include adaptiveValue("padding-top", 37, 15, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 41, 19, $containerWidth, $minWidth, 1);
+		align-items: center;
+		border-bottom: 1px solid $greyColor;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__left {
+		flex: 0 1 50%;
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+		}
+		p {
+			span {
+				@include adaptiveValue("margin-right", 33, 10, $containerWidth, $minWidth, 1);
+				font-weight: 700;
+				@include adaptiveValue("font-size", 18, 16, $containerWidth, $minWidth, 1);
+				line-height: 130%;
+			}
+		}
+	}
+
+	&__right {
+		flex: 0 1 50%;
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+			margin-top: 10px;
+		}
+		p {
+			max-width: 335px;
+			@media(max-width: $mobile) {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+
+// Cost__section
+//=======================================================================================================
+
+
+
+.cost {
+
+	&__section {
+		@include adaptiveValue("padding-bottom", 170, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		display: flex;
+		gap: 20px;
+		justify-content: space-between;
+		align-items: center;
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+			position: relative;
+		}
+	}
+
+	&__left {
+		flex: 0 1 415px;
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__title {
+		position: relative;
+		@include adaptiveValue("margin-bottom", 30, 15, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-top", 60, 0, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: -35px;
+			left: 0;
+			width: 55px;
+			height: 25px;
+			background-image: url('../img/6_cost/dekor_2.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			@media(max-width: $mobileSmall) {
+				background-size: 70%;
+				top: -25px;
+			}
+		}
+	}
+
+	&__list {
+		@include adaptiveValue("margin-top", 10, 5, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-bottom", 40, 20, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		li {
+			position: relative;
+			@include adaptiveValue("padding-left", 20, 10, $containerWidth, $minWidth, 1);
+			&::after {
+				content: "";
+				width: 6px;
+				height: 6px;
+				background-color: $mainColor;
+				top: 5px;
+				left: 0;
+				position: absolute;
+				transform: rotate(45deg);
+			}
+		}
+	}
+
+	&__right {
+		background-image: url('../img/6_cost/cost_1.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		flex: 0 1 610px;
+		@include adaptiveValue("height", 562, 350, $containerWidth, $minWidth, 1);
+		position: relative;
+		@include adaptiveValue("margin-left", 110, 50, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		@media(max-width: $mobile) {
+			background-image: none!important;
+			position: absolute;
+			right: 15px;
+			@include adaptiveValue("top", 30, 18, $containerWidth, $minWidth, 1);
+			margin-left: 0!important;
+			height: auto!important;
+		}
+		@media(max-width: 600px) {
+			position: relative!important;
+			flex: 1 1 100%;
+			right: auto!important;
+			top: auto!important;
+			margin-top: 10px;
+		}
+	}
+
+	&__block {
+		@include adaptiveValue("padding-top", 43, 20, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-right", 30, 15, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 35, 17, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-left", 30, 15, $containerWidth, $minWidth, 1);
+		position: absolute;
+		bottom: 25%;
+		left: -15%;
+		background: rgba(255, 255, 255, 0.75);
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+		backdrop-filter: blur(2.5px);
+		border-radius: 10px;
+		z-index: 1;
+		p {
+			@include adaptiveValue("width", 206, 175, $containerWidth, $minWidth, 1);
+		}
+		@media(max-width: $mobile) {
+			position: relative;
+			bottom: 0;
+			left: 0;
+		}
+		&:after {
+			background-color: #A7CFFF;
+			opacity: 0.4;
+			filter: blur(14.5px);
+			border-radius: 10px;
+			position: absolute;
+			left: -10px;
+			width: 140px;
+			height: 151px;
+			bottom: -10px;
+			content: "";
+			z-index: -1;
+			@media(max-width: 600px) {
+				opacity: 0.05;
+				width: 100%;
+			}
+		}
+	}
+
+	&__button {
+		@include adaptiveValue("margin-top", 25, 15, $containerWidth, $minWidth, 1);
+		cursor: pointer;
+	}
+}
+
+// Present__section
+//=======================================================================================================
+
+
+
+.present {
+
+	&__section {
+		background-image: url('../img/7_present/background-image.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		@include adaptiveValue("padding-top", 100, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 100, 40, $containerWidth, $minWidth, 1);
+		@media(max-width: $mobile) {
+			padding-top: 0!important;
+			padding-bottom: 0!important;
+		}
+	}
+
+	&__container {
+		@media(max-width: $mobile) {
+			@include adaptiveValue("padding-top", 100, 40, $containerWidth, $minWidth, 1);
+			@include adaptiveValue("padding-bottom", 100, 40, $containerWidth, $minWidth, 1);
+			backdrop-filter: blur(5px);
+		}
+	}
+
+	&__title {
+		max-width: 514px;
+		@media(max-width: $tablet) {
+			max-width: 450px;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__text {
+		max-width: 357px;
+		@include adaptiveValue("margin-top", 20, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-bottom", 36, 18, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__button {
+		cursor: pointer;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+}
+
+// About__section
+//=======================================================================================================
+
+
+.about {
+
+	&__section {
+		@include adaptiveValue("padding-top", 170, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 170, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+	}
+
+	&__top {
+		display: flex;
+		@include adaptiveValue("gap", 60, 0, $containerWidth, $minWidth, 1);
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+			gap: 30px!important;
+		}
+	}
+
+	&__top-left {
+		flex: 0 1 530px;
+		@include adaptiveValue("margin-right", 40, 0, $containerWidth, $minWidth, 1);
+		background-image: url('../img/8_about/about_1.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		@include adaptiveValue("height", 465, 300, $containerWidth, $minWidth, 1);
+		position: relative;
+		@media(max-width: $mobile) {
+			background-image: none!important;
+			height: auto!important;
+			order: 2;
+			margin-right: 0!important;
+			flex: 0 1 420px;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__top-block {
+		background: rgba(255, 255, 255, 0.75);
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+		backdrop-filter: blur(2.5px);
+		border-radius: 10px;
+		position: absolute;
+		right: -30px;
+		bottom: 32px;
+		@include adaptiveValue("padding-bottom", 20, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-top", 20, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-right", 30, 15, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-left", 30, 15, $containerWidth, $minWidth, 1);
+		@media(max-width: $mobile) {
+			position: relative;
+			right: 0;
+			bottom: 0;
+		}
+		&:after {
+			background: #A7CFFF;
+			opacity: 0.4;
+			filter: blur(14.5px);
+			border-radius: 10px;
+			content: "";
+			position: absolute;
+			bottom: -5px;
+			right: -5px;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			@media(max-width: $mobile) {
+				opacity: 0.1;
+			}
+		}
+		p {
+			position: relative;
+			@include adaptiveValue("padding-left", 53, 50, $containerWidth, $minWidth, 1);
+			&:before {
+				background-image: url('../img/8_about/dots.svg');
+				background-size: contain;
+				background-repeat: no-repeat;
+				width: 43px;
+				height: 21px;
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			a {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__top-right {
+		@media(max-width: $mobile) {
+			order: 1;
+			flex: 1 1 100%;
+		}
+	}
+
+	&__top-title {
+		position: relative;
+		@include adaptiveValue("margin-bottom", 30, 15, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-top", 50, 0, $containerWidth, $minWidth, 1);
+		&:after {
+			content: "";
+			position: absolute;
+			top: -35px;
+			left: 0;
+			width: 55px;
+			height: 25px;
+			background-image: url('../img/8_about/dekor.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			@media(max-width: $mobileSmall) {
+				background-size: 70%;
+				top: -25px;
+			}
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__top-text {
+		max-width: 450px;
+		p {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 15, 5, $containerWidth, $minWidth, 1);
+			}
+		}
+		@media(max-width: $mobile) {
+			max-width: 100%;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__center {
+		@include adaptiveValue("margin-top", 80, 30, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-bottom", 80, 30, $containerWidth, $minWidth, 1);
+		display: flex;
+		gap: 19px;
+		@media(max-width: $tablet) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		@media(max-width: $mobile) {
+			gap: 15px;
+		}
+	}
+
+	&__item {
+		flex: 0 1 276px;
+		background-color: $greyLightColor;
+		@include adaptiveValue("padding", 20, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 33, 15, $containerWidth, $minWidth, 1);
+		@media(max-width: $tablet) {
+			flex: 1 1 30%;
+		}
+		@media(max-width: $mobile) {
+			flex: 1 1 48%;
+		}
+		@media(max-width: $mobileSmall) {
+			flex: 1 1 100%;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__item-title {
+		@include adaptiveValue("margin-bottom", 23, 15, $containerWidth, $minWidth, 1);
+	}
+
+	&__item-text {
+		max-width: 200px;
+		@media(max-width: $tablet) {
+			max-width: 100%;
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 20px;
+	}
+
+	&__bottom-left {
+		flex: 0 1 450px;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		p {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 15, 5, $containerWidth, $minWidth, 1);
+			}
+		}
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__bottom-right {
+		flex: 0 1 610px;
+		background-image: url('../img/8_about/about_2.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		@include adaptiveValue("height", 430, 300, $containerWidth, $minWidth, 1);
+		@media(max-width: $mobile) {
+			display: none;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+}
+
+
+
+
+// Works__section
+//=======================================================================================================
+
+
+.works {
+
+	&__section {
+		@include adaptiveValue("padding-bottom", 170, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__title {
+		position: relative;
+		@include adaptiveValue("margin-bottom", 30, 15, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-top", 50, 30, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: -35px;
+			left: 0;
+			width: 55px;
+			height: 25px;
+			background-image: url('../img/9_works/dekor.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			@media(max-width: $mobileSmall) {
+				background-size: 70%;
+				top: -25px;
+			}
+		}
+	}
+
+	&__body {
+		&.swiper {
+			overflow: visible;
+			position: initial;
+		}
+	}
+
+	&__swiper {
+	}
+
+	&__item {
+		text-align: center;
+		img {
+			max-width: 100%;
+			height: auto;
+			cursor: pointer;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__slider-arrows {
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__slider-arrow {
+		width: 60px;
+		height: 60px;
+		border-radius: 10px;
+		position: relative;
+		background-color: #A7CFFF;
+		cursor: pointer;
+		transition: all .3s ease 0s;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 22px;
+			left: 26px;
+			width: 8px;
+			height: 16px;
+			background-image: url('../img/9_works/arrow.svg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			@media(max-width: $tablet) {
+				top: 17px;
+				left: 21px;
+			}
+			@media(max-width: $mobile) {
+				top: 12px;
+				left: 16px;
+			}
+			@media(max-width: $mobileSmall) {
+				top: 9px;
+				left: 13px;
+			}
+		}
+		&:after {
+			content: "";
+			background-color: #A7CFFF;
+			opacity: 0.5;
+			filter: blur(14.5px);
+			border-radius: 5px;
+			position: absolute;
+			width: 53px;
+			height: 52px;
+			z-index: -1;
+			right: -5px;
+			bottom: -5px;
+			@media(max-width: $tablet) {
+				width: 43px;
+				height: 42px;
+			}
+			@media(max-width: $mobile) {
+				width: 33px;
+				height: 32px;
+			}
+		}
+		@media(max-width: $tablet) {
+			width: 50px;
+			height: 50px;
+		}
+		@media(max-width: $mobile) {
+			width: 40px;
+			height: 40px;
+		}
+		@media(max-width: $mobileSmall) {
+			width: 34px;
+			height: 34px;
+		}
+		&.swiper-button-disabled {
+			background-color: #C4DFFF;
+			box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+		}
+		&.arrow-prev {
+
+		}
+		&.arrow-next {
+			&:before {
+				transform: rotate(180deg)
+			}
+		}
+	}
+}
+.arrows {
+	position: absolute;
+	right: 15px;
+	@include adaptiveValue("top", -5, -15, $containerWidth, $minWidth, 1);
+	display: flex;
+	gap: 20px;
+}
+.arrow {
+	width: 60px;
+		height: 60px;
+		border-radius: 10px;
+		position: relative;
+		background-color: #A7CFFF;
+		cursor: pointer;
+		transition: all .3s ease 0s;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 22px;
+			left: 26px;
+			width: 8px;
+			height: 16px;
+			background-image: url('../img/9_works/arrow.svg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			@media(max-width: $tablet) {
+				top: 17px;
+				left: 21px;
+			}
+			@media(max-width: $mobile) {
+				top: 12px;
+				left: 16px;
+			}
+			@media(max-width: $mobileSmall) {
+				top: 9px;
+				left: 13px;
+			}
+		}
+		&:after {
+			content: "";
+			background-color: #A7CFFF;
+			opacity: 0.5;
+			filter: blur(14.5px);
+			border-radius: 5px;
+			position: absolute;
+			width: 53px;
+			height: 52px;
+			z-index: -1;
+			right: -5px;
+			bottom: -5px;
+			@media(max-width: $tablet) {
+				width: 43px;
+				height: 42px;
+			}
+			@media(max-width: $mobile) {
+				width: 33px;
+				height: 32px;
+			}
+		}
+		@media(max-width: $tablet) {
+			width: 50px;
+			height: 50px;
+		}
+		@media(max-width: $mobile) {
+			width: 40px;
+			height: 40px;
+		}
+		@media(max-width: $mobileSmall) {
+			width: 34px;
+			height: 34px;
+		}
+		&.swiper-button-disabled {
+			background-color: #C4DFFF;
+			box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+		}
+		&.arrow-prev {
+
+		}
+		&.arrow-next {
+			&:before {
+				transform: rotate(180deg)
+			}
+		}
+}
+
+
+
+// Sertificat__section
+//=======================================================================================================
+
+
+
+.sertificat {
+
+	&__section {
+		background-color: #A7CFFF;
+		@include adaptiveValue("padding-top", 120, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 120, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 26px;
+			right: -141px;
+			background-image: url('../img/10_sertificat/dots.svg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			@include adaptiveValue("width", 487, 350, $containerWidth, $minWidth, 1);
+			@include adaptiveValue("height", 350, 220, $containerWidth, $minWidth, 1);
+			z-index: 0;
+			@media(max-width: $tablet) {
+				opacity: .2;
+			}
+		}
+	}
+
+	&__top {
+		display: flex;
+		@include adaptiveValue("gap", 115, 0, $containerWidth, $minWidth, 1);
+		padding-right: 130px;
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+			gap: 15px;
+			padding-right: 0;
+		}
+	}
+
+	&__title {
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__text {
+		max-width: 450px;
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+			max-width: 100%;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__body {
+		@include adaptiveValue("margin-top", 56, 35, $containerWidth, $minWidth, 1);
+		&.swiper {
+			position: initial!important;
+		}
+	}
+
+	&__slider-arrows {
+		z-index: 1;
+		@include adaptiveValue("top", 0, -10, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__slider-arrow {
+		background-color: #FFFFFF;
+		&:before {
+			background-image: url('../img/9_works/arrow_black.svg');
+		}
+	}
+
+	&__swiper {
+	}
+
+	&__item {
+		text-align: center;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		img {
+			cursor: pointer;
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+// Questions__section
+//=======================================================================================================
+
+
+
+.reviews {
+
+	&__section {
+		background-color: $greyLightColor;
+		@include adaptiveValue("padding-top", 120, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 120, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__title {
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__body {
+		@include adaptiveValue("margin-top", 54, 35, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		&.swiper {
+			position: initial!important;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: 75px;
+			left: -15px;
+			width: 50px;
+			height: 50px;
+			background-color: #A7CFFF;
+			border-radius: 10px;
+			z-index: 1;
+			@media(max-width: 1300px) {
+				left: 15px;
+				top: 65px;
+			}
+			@media(max-width: $tablet) {
+				top: 65px;
+				width: 40px;
+				height: 40px;
+			}
+			@media(max-width: $mobile) {
+				top: 50px;
+			}
+			@media(max-width: 550px) {
+				top: 40px;
+			}
+			@media(max-width: $mobileSmall) {
+				top: 40px;
+				width: 34px;
+				height: 34px;
+			}
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			top: 90px;
+			left: -2px;
+			width: 22px;
+			height: 17px;
+			z-index: 2;
+			background-image: url('../img/11_reviews/backtick.svg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			@media(max-width: 1300px) {
+				left: 28px;
+				top: 80px;
+			}
+			@media(max-width: $tablet) {
+				top: 77px;
+				left: 25px;
+				background-size: 90%;
+			}
+			@media(max-width: $mobile) {
+				top: 62px;
+			}
+			@media(max-width: 550px) {
+				top: 50px;
+			}
+			@media(max-width: $mobileSmall) {
+				top: 50px;
+				left: 24px;
+				background-size: 80%;
+			}
+		}
+	}
+
+	&__swiper {
+		position: relative;
+	}
+
+	&__item {
+		@include adaptiveValue("padding", 30, 15, $containerWidth, $minWidth, 1);
+		background-color: $whiteColor;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		height: auto;
+	}
+
+	&__item-top {
+		flex: 1 1 auto;
+		margin-bottom: 30px;
+		position: relative;
+		&.video {
+			@include adaptiveValue("margin-top", -30, -15, $containerWidth, $minWidth, 1);
+			@include adaptiveValue("margin-right", -30, -15, $containerWidth, $minWidth, 1);
+			@include adaptiveValue("margin-left", -30, -15, $containerWidth, $minWidth, 1);
+			a {
+				display: inline-block;
+				position: relative;
+				width: 100%;
+				img {
+					background-color: rgba(0, 0, 0, 0.2);
+					max-width: 100%;
+					width: 100%;
+					height: auto;
+					border-top-left-radius: 20px;
+					border-top-right-radius: 20px;
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					left: 40%;
+					top: 40%;
+					@include adaptiveValue("width", 55, 35, $containerWidth, $minWidth, 1);
+					@include adaptiveValue("height", 55, 35, $containerWidth, $minWidth, 1);
+					background-image: url('../img/11_reviews/play.svg');
+					background-size: cover;
+					background-repeat: no-repeat;
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		flex: 0 1 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__people {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+	}
+
+	&__people-avatar {
+		img {
+			border-radius: 50%;
+
+		}
+	}
+
+	&__people-name {
+	}
+
+	&__stars {
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+
+
+
+
+// Questions__section
+//=======================================================================================================
+
+.questions {
+
+	&__section {
+		@include adaptiveValue("padding-top", 170, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+	}
+
+	&__title {
+		position: relative;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: -35px;
+			left: 0;
+			width: 55px;
+			height: 25px;
+			background-image: url('../img/12_geography/dekor_1.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			@media(max-width: $mobileSmall) {
+				background-size: 70%;
+				top: -25px;
+			}
+		}
+	}
+
+	&__body {
+		@include adaptiveValue("margin-top", 40, 10, $containerWidth, $minWidth, 1);
+	}
+
+	&__line {
+		border-bottom: 1px solid #CDCDCD;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__line-title {
+		font-weight: 700;
+		cursor: pointer;
+		@include adaptiveValue("font-size", 23, 17, $containerWidth, $minWidth, 1);
+		line-height: 125%;
+		@include adaptiveValue("padding-top", 45, 20, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 45, 20, $containerWidth, $minWidth, 1);
+		p {
+			position: relative;
+			@include adaptiveValue("padding-right", 250, 35, $containerWidth, $minWidth, 1);
+			&:after { 
+				content: "";
+				position: absolute;
+				top: 13px;
+				right: 0;
+				background-color: $mainColor;
+				width: 26px;
+				height: 2px;
+				transition: all .3s ease 0s;
+				@media(max-width: $mobileSmall) {
+					width: 20px;
+				}
+			}
+			&:before {
+				content: "";
+				position: absolute;
+				top: 13px;
+				right: 0;
+				background-color: $mainColor;
+				width: 26px;
+				height: 2px;
+				transform: rotate(90deg);
+				transition: all .3s ease 0s;
+				@media(max-width: $mobileSmall) {
+					width: 20px;
+				}
+			}
+		}
+		&._spoller-active {
+			p {
+				&:after {
+					transform: rotate(45deg);
+				}
+				&:before {
+					transform: rotate(135deg);
+				}
+			}
+		}
+	}
+
+	&__line-text {
+		@include adaptiveValue("padding-bottom", 45, 20, $containerWidth, $minWidth, 1);
+		font-weight: 400;
+		@include adaptiveValue("font-size", 16, 14, $containerWidth, $minWidth, 1);
+		line-height: 145%;
+		p {
+			max-width: 1060px;
+		}
+	}
+}
+
+
+// Geography__section
+//=======================================================================================================
+
+
+
+.geography {
+
+	&__section {
+		@include adaptiveValue("padding-bottom", 170, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-top", 170, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		background-image: url('../img/12_geography/background-image.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		position: relative;
+		@include adaptiveValue("padding-bottom", 80, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-top", 90, 40, $containerWidth, $minWidth, 1);
+		&:after {
+			content: "";
+			position: absolute;
+			top: 26%;
+			right: 0;
+			background-image: url('../img/12_geography/dots.svg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			@include adaptiveValue("width", 487, 200, $containerWidth, $minWidth, 1);
+			@include adaptiveValue("height", 350, 100, $containerWidth, $minWidth, 1);
+			@media(max-width: $mobile) {
+				display: none;
+			}
+		}
+	}
+
+	&__title {
+		position: relative;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: -35px;
+			left: 0;
+			width: 55px;
+			height: 25px;
+			background-image: url('../img/12_geography/dekor_2.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			@media(max-width: $mobileSmall) {
+				background-size: 70%;
+				top: -25px;
+			}
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 970px;
+		position: relative;
+		z-index: 1;
+		@include adaptiveValue("gap", 50, 20, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("margin-top", 88, 30, $containerWidth, $minWidth, 1);
+		@media(max-width: $tablet) {
+			width: 100%;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__line {
+		display: flex;
+		@include adaptiveValue("gap", 30, 15, $containerWidth, $minWidth, 1);
+		text-align: center;
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+			justify-content: center;
+			width: 100%;
+			&:nth-child(1) {
+				order: 1;
+			}
+			&:nth-child(2) {
+				order: 3;
+			}
+			&:nth-child(3) {
+				order: 2;
+			}
+		}
+	}
+
+	&__item {
+		flex: 0 1 auto;
+		background: rgba(255, 255, 255, 0.75);
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+		backdrop-filter: blur(2.5px);
+		border-radius: 10px;
+		@include adaptiveValue("padding-top", 17, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-right", 50, 25, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 17, 10, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-left", 50, 25, $containerWidth, $minWidth, 1);
+		@media(max-width: $mobile) {
+			flex: 0 1 280px;
+		}
+		@media(max-width: $mobileSmall) {
+			flex: 1 1 100%;
+		}
+		p {
+			position: relative;
+			@include adaptiveValue("padding-left", 20, 10, $containerWidth, $minWidth, 1);
+			&::after {
+				content: "";
+				width: 6px;
+				height: 6px;
+				background-color: $mainColor;
+				top: 10px;
+				left: 0;
+				position: absolute;
+				transform: rotate(45deg);
+			}
+		}
+	}
+
+	&__text {
+		@include adaptiveValue("margin-top", 20, 10, $containerWidth, $minWidth, 1);
+		text-align: right;
+	}
+}
+
+
+
+// Consultation__section
+//=======================================================================================================
+
+
+.consultation {
+
+	&__section {
+		background-image: url('../img/13_consultation/background-image.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		@include adaptiveValue("padding-top", 100, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 100, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		display: flex;
+		@include adaptiveValue("gap", 70, 20, $containerWidth, $minWidth, 1);
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__left {
+		flex: 0 1 560px;
+		margin-top: 10px;
+		@media(max-width: $mobile) {
+		
+		}
+	}
+
+	&__title {
+		color: $whiteColor;
+		@include adaptiveValue("margin-bottom", 20, 10, $containerWidth, $minWidth, 1);
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__text {
+		color: $whiteColor;
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+	}
+
+	&__right {
+		flex: 0 1 auto;
+		@media(max-width: $mobile) {
+			flex: 1 1 100%;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		input {
+			color: $mainColor;
+		}
+	}
+}
+
+
+// Logotypes__section
+//=======================================================================================================
+
+
+
+.logotypes {
+
+	&__section {
+		@include adaptiveValue("padding-top", 67, 40, $containerWidth, $minWidth, 1);
+		@include adaptiveValue("padding-bottom", 69, 40, $containerWidth, $minWidth, 1);
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: 40px;
+		@media(max-width: $mobile) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@media(max-width: $mobileSmall) {
+			flex: 0 1 45%;
+		}
+		._watcher-view & {
+			animation: fadeIn  2s ease-in-out;
+		}
+		img {
+			max-width: 100%;
+			height: auto;
+			@media(max-width: $mobile) {
+				max-width: 70%;
+			}
+			@media(max-width: $mobileSmall) {
+				max-width: 80%;
+			}
+		}
+		picture {
+			display: flex;
+			align-items: center;
+			text-align: center;
+		}
+	}
+}
+
+
+// Gallery__popup
+//=======================================================================================================
+
+.lg-backdrop {
+	background-color: rgba(0, 0, 0, 0.8)!important;
+}
+.lg-on body{
+	overflow: hidden;
+	touch-action: none;
+}
+.lg-counter, .lg-download {
+	display: none!important;
+}
+.lg-outer .lg-content {
+	max-width: 1240px;
+	margin: 0 auto;
+}
+.lg-close {
+	color: white!important;
+	position: relative;
+	width: 44px;
+	height: 44px;
+	@include adaptiveValue("margin-top", 35, 20, $containerWidth, $minWidth, 1);
+	@include adaptiveValue("margin-right", 35, 20, $containerWidth, $minWidth, 1);
+	transition: all .3s ease 0s!important;
+	&:after {
+		content: ""!important;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 44px;
+		height: 44px;
+		background-image: url('../img/icons/close_2.svg');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	@media (any-hover: hover){
+		&:hover{
+			transform: rotate(90deg)!important; 
+		} 
+	}
+}
+
+.lg-prev {
+	position: absolute;
+	left: 0;
+	top: calc(50% - 27px)!important;
+	width: 27px;
+	height: 54px;
+	background: none!important;
+	&:after {
+		content: ""!important;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 27px;
+		height: 54px;
+		background-image: url('../img/icons/arrow.svg');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+}
+.lg-next {
+	position: absolute;
+	right: 0;
+	top: calc(50% - 27px)!important;
+	width: 27px;
+	height: 54px;
+	background: none!important;
+	&:before {
+		content: ""!important;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 27px;
+		height: 54px;
+		background-image: url('../img/icons/arrow.svg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		transform: rotate(180deg);
+	}
+}
