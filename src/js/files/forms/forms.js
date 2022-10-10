@@ -258,11 +258,11 @@ export function formSubmit(validate) {
 	}
 }
 /* Маски для полей (в работе) */
-//export function formMasks(logging) {
-//	formsModules.inputMaskModule = new InputMask({
-//		logging: logging
-//	});
-//}
+// export function formMasks(logging) {
+// formsModules.inputMaskModule = new InputMask({
+// logging: logging
+// });
+// }
 /* Модуль работы с select */
 export function formSelect() {
 	formsModules.selectModule = new SelectConstructor({});

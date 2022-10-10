@@ -118,12 +118,12 @@
               e &&
                 (void 0 === s ? (void 0 === i ? e(t) : e(t, i)) : e(t, i, s));
             },
-            z = function (e, t) {
+            $ = function (e, t) {
               n
                 ? e.classList.add(t)
                 : (e.className += (e.className ? " " : "") + t);
             },
-            $ = function (e, t) {
+            z = function (e, t) {
               n
                 ? e.classList.remove(t)
                 : (e.className = e.className
@@ -134,7 +134,7 @@
             M = function (e) {
               return e.llTempImage;
             },
-            P = function (e, t) {
+            k = function (e, t) {
               if (t) {
                 var i = t._observer;
                 i && i.unobserve(e);
@@ -143,20 +143,20 @@
             A = function (e, t) {
               e && (e.loadingCount += t);
             },
-            k = function (e, t) {
+            P = function (e, t) {
               e && (e.toLoadCount = t);
             },
-            D = function (e) {
+            B = function (e) {
               for (var t, i = [], s = 0; (t = e.children[s]); s += 1)
                 "SOURCE" === t.tagName && i.push(t);
               return i;
             },
-            B = function (e, t) {
+            D = function (e, t) {
               var i = e.parentNode;
-              i && "PICTURE" === i.tagName && D(i).forEach(t);
+              i && "PICTURE" === i.tagName && B(i).forEach(t);
             },
             G = function (e, t) {
-              D(e).forEach(t);
+              B(e).forEach(t);
             },
             F = [d],
             V = [d, h],
@@ -180,7 +180,7 @@
                   (e[p] = i);
               }
             },
-            j = function (e, t) {
+            Y = function (e, t) {
               if (R(e)) {
                 var i = q(e);
                 t.forEach(function (t) {
@@ -190,8 +190,8 @@
                 });
               }
             },
-            Y = function (e, t, i) {
-              z(e, t.class_loading),
+            j = function (e, t, i) {
+              $(e, t.class_loading),
                 E(e, m),
                 i && (A(i, 1), O(t.callback_loading, e, i));
             },
@@ -205,7 +205,7 @@
             },
             K = {
               IMG: function (e, t) {
-                B(e, function (e) {
+                D(e, function (e) {
                   W(e, H), U(e, t);
                 }),
                   W(e, H),
@@ -265,8 +265,8 @@
                 (function (e) {
                   e && (e.toLoadCount -= 1);
                 })(i),
-                $(e, t.class_loading),
-                t.unobserve_completed && P(e, i);
+                z(e, t.class_loading),
+                t.unobserve_completed && k(e, i);
             },
             oe = function (e, t, i) {
               var s = M(e) || e;
@@ -281,7 +281,7 @@
                     !(function (e, t, i, s) {
                       var n = I(t);
                       ne(t, i, s),
-                        z(t, i.class_loaded),
+                        $(t, i.class_loaded),
                         E(t, f),
                         O(i.callback_loaded, t, s),
                         n || J(i, s);
@@ -292,7 +292,7 @@
                     !(function (e, t, i, s) {
                       var n = I(t);
                       ne(t, i, s),
-                        z(t, i.class_error),
+                        $(t, i.class_error),
                         E(t, y),
                         O(i.callback_error, t, s),
                         n || J(i, s);
@@ -316,7 +316,7 @@
                   r &&
                     ((e.style.backgroundImage = 'url("'.concat(r, '")')),
                     M(e).setAttribute(d, r),
-                    Y(e, t, i));
+                    j(e, t, i));
                 })(e, t, i),
                 (function (e, t, i) {
                   var s = C(e, t.data_bg_multi),
@@ -325,10 +325,10 @@
                   r &&
                     ((e.style.backgroundImage = r),
                     (function (e, t, i) {
-                      z(e, t.class_applied),
+                      $(e, t.class_applied),
                         E(e, v),
                         i &&
-                          (t.unobserve_completed && P(e, t),
+                          (t.unobserve_completed && k(e, t),
                           O(t.callback_applied, e, i));
                     })(e, t, i));
                 })(e, t, i);
@@ -342,7 +342,7 @@
                     oe(e, t, i),
                       (function (e, t, i) {
                         var s = K[e.tagName];
-                        s && (s(e, t), Y(e, t, i));
+                        s && (s(e, t), j(e, t, i));
                       })(e, t, i);
                   })(e, t, i);
             },
@@ -350,25 +350,25 @@
               e.removeAttribute(d), e.removeAttribute(c), e.removeAttribute(u);
             },
             de = function (e) {
-              B(e, function (e) {
-                j(e, H);
+              D(e, function (e) {
+                Y(e, H);
               }),
-                j(e, H);
+                Y(e, H);
             },
             ce = {
               IMG: de,
               IFRAME: function (e) {
-                j(e, F);
+                Y(e, F);
               },
               VIDEO: function (e) {
                 G(e, function (e) {
-                  j(e, F);
+                  Y(e, F);
                 }),
-                  j(e, V),
+                  Y(e, V),
                   e.load();
               },
               OBJECT: function (e) {
-                j(e, N);
+                Y(e, N);
               },
             },
             ue = function (e, t) {
@@ -386,12 +386,12 @@
                 (function (e, t) {
                   _(e) ||
                     I(e) ||
-                    ($(e, t.class_entered),
-                    $(e, t.class_exited),
-                    $(e, t.class_applied),
-                    $(e, t.class_loading),
-                    $(e, t.class_loaded),
-                    $(e, t.class_error));
+                    (z(e, t.class_entered),
+                    z(e, t.class_exited),
+                    z(e, t.class_applied),
+                    z(e, t.class_loading),
+                    z(e, t.class_loaded),
+                    z(e, t.class_error));
                 })(e, t),
                 T(e),
                 X(e);
@@ -410,17 +410,17 @@
                         return L.indexOf(x(e)) >= 0;
                       })(e);
                       E(e, "entered"),
-                        z(e, i.class_entered),
-                        $(e, i.class_exited),
+                        $(e, i.class_entered),
+                        z(e, i.class_exited),
                         (function (e, t, i) {
-                          t.unobserve_entered && P(e, i);
+                          t.unobserve_entered && k(e, i);
                         })(e, i, s),
                         O(i.callback_enter, e, t, s),
                         n || ae(e, i, s);
                     })(e.target, e, t, i)
                   : (function (e, t, i, s) {
                       _(e) ||
-                        (z(e, i.class_exited),
+                        ($(e, i.class_exited),
                         (function (e, t, i, s) {
                           i.cancel_on_exit &&
                             (function (e) {
@@ -429,13 +429,13 @@
                             "IMG" === e.tagName &&
                             (se(e),
                             (function (e) {
-                              B(e, function (e) {
+                              D(e, function (e) {
                                 le(e);
                               }),
                                 le(e);
                             })(e),
                             de(e),
-                            $(e, i.class_loading),
+                            z(e, i.class_loading),
                             A(s, -1),
                             T(e),
                             O(i.callback_cancel, e, t, s));
@@ -485,7 +485,7 @@
                       !(function (e, t) {
                         var i;
                         ((i = fe(e)), me(i).filter(ve)).forEach(function (t) {
-                          $(t, e.class_error), T(t);
+                          z(t, e.class_error), T(t);
                         }),
                           t.update();
                       })(e, i);
@@ -500,7 +500,7 @@
                   n,
                   o = this._settings,
                   r = ye(e, o);
-                k(this, r.length),
+                P(this, r.length),
                   !i && s
                     ? pe(o)
                       ? (function (e, t, i) {
@@ -516,7 +516,7 @@
                                   E(e, b);
                               })(e, t, i);
                           }),
-                            k(i, 0);
+                            P(i, 0);
                         })(r, o, this)
                       : ((n = r),
                         (function (e) {
@@ -543,7 +543,7 @@
                 var t = this,
                   i = this._settings;
                 ye(e, i).forEach(function (e) {
-                  P(e, t), ae(e, i, t);
+                  k(e, t), ae(e, i, t);
                 });
               },
               restoreAll: function () {
@@ -1795,10 +1795,10 @@
     function O(e, t) {
       return void 0 === t && (t = 0), setTimeout(e, t);
     }
-    function z() {
+    function $() {
       return Date.now();
     }
-    function $(e, t) {
+    function z(e, t) {
       void 0 === t && (t = "x");
       const i = w();
       let s, n, o;
@@ -1854,7 +1854,7 @@
         "Object" === Object.prototype.toString.call(e).slice(8, -1)
       );
     }
-    function P(e) {
+    function k(e) {
       return "undefined" != typeof window && void 0 !== window.HTMLElement
         ? e instanceof HTMLElement
         : e && (1 === e.nodeType || 11 === e.nodeType);
@@ -1864,7 +1864,7 @@
         t = ["__proto__", "constructor", "prototype"];
       for (let i = 1; i < arguments.length; i += 1) {
         const s = i < 0 || arguments.length <= i ? void 0 : arguments[i];
-        if (null != s && !P(s)) {
+        if (null != s && !k(s)) {
           const i = Object.keys(Object(s)).filter((e) => t.indexOf(e) < 0);
           for (let t = 0, n = i.length; t < n; t += 1) {
             const n = i[t],
@@ -1883,10 +1883,10 @@
       }
       return e;
     }
-    function k(e, t, i) {
+    function P(e, t, i) {
       e.style.setProperty(t, i);
     }
-    function D(e) {
+    function B(e) {
       let { swiper: t, targetPosition: i, side: s } = e;
       const n = w(),
         o = -t.translate;
@@ -1916,11 +1916,11 @@
         };
       u();
     }
-    let B, G, F;
+    let D, G, F;
     function V() {
       return (
-        B ||
-          (B = (function () {
+        D ||
+          (D = (function () {
             const e = w(),
               t = y();
             return {
@@ -1946,7 +1946,7 @@
               gestures: "ongesturestart" in e,
             };
           })()),
-        B
+        D
       );
     }
     function H(e) {
@@ -2178,8 +2178,8 @@
             : c.css({ marginRight: "", marginBottom: "", marginTop: "" }),
           s.centeredSlides &&
             s.cssMode &&
-            (k(e.wrapperEl, "--swiper-centered-offset-before", ""),
-            k(e.wrapperEl, "--swiper-centered-offset-after", ""));
+            (P(e.wrapperEl, "--swiper-centered-offset-before", ""),
+            P(e.wrapperEl, "--swiper-centered-offset-after", ""));
         const x = s.grid && s.grid.rows > 1 && e.grid;
         let E;
         x && e.grid.initSlides(u);
@@ -2310,8 +2310,8 @@
           }),
           s.centeredSlides && s.cssMode && !s.centeredSlidesBounds)
         ) {
-          k(e.wrapperEl, "--swiper-centered-offset-before", -h[0] + "px"),
-            k(
+          P(e.wrapperEl, "--swiper-centered-offset-before", -h[0] + "px"),
+            P(
               e.wrapperEl,
               "--swiper-centered-offset-after",
               e.size / 2 - g[g.length - 1] / 2 + "px"
@@ -2603,7 +2603,7 @@
         } = this;
         if (t.virtualTranslate) return i ? -s : s;
         if (t.cssMode) return s;
-        let o = $(n[0], e);
+        let o = z(n[0], e);
         return i && (o = -o), o || 0;
       },
       setTranslate: function (e, t) {
@@ -2659,7 +2659,7 @@
           else {
             if (!o.support.smoothScroll)
               return (
-                D({ swiper: o, targetPosition: -c, side: e ? "left" : "top" }),
+                B({ swiper: o, targetPosition: -c, side: e ? "left" : "top" }),
                 !0
               );
             a.scrollTo({ [e ? "left" : "top"]: -c, behavior: "smooth" });
@@ -2725,7 +2725,7 @@
             : t.emit(`slidePrevTransition${n}`);
       }
     }
-    const j = {
+    const Y = {
       slideTo: function (e, t, i, s, n) {
         if (
           (void 0 === e && (e = 0),
@@ -2821,7 +2821,7 @@
           } else {
             if (!o.support.smoothScroll)
               return (
-                D({ swiper: o, targetPosition: i, side: e ? "left" : "top" }),
+                B({ swiper: o, targetPosition: i, side: e ? "left" : "top" }),
                 !0
               );
             p.scrollTo({ [e ? "left" : "top"]: i, behavior: "smooth" });
@@ -3013,7 +3013,7 @@
         } else e.slideTo(o);
       },
     };
-    const Y = {
+    const j = {
       loopCreate: function () {
         const e = this,
           t = y(),
@@ -3164,7 +3164,7 @@
         }),
         (r.startX = h),
         (r.startY = p),
-        (n.touchStartTime = z()),
+        (n.touchStartTime = $()),
         (t.allowClick = !0),
         t.updateSize(),
         (t.swipeDirection = void 0),
@@ -3223,7 +3223,7 @@
               currentX: c,
               currentY: u,
             }),
-            (s.touchStartTime = z()))
+            (s.touchStartTime = $()))
           )
         );
       if (s.isTouchEvent && n.touchReleaseOnEdges && !n.loop)
@@ -3383,7 +3383,7 @@
         i.isTouched &&
         (!0 === t.allowSlideNext || !0 === t.allowSlidePrev) &&
         t.setGrabCursor(!1);
-      const d = z(),
+      const d = $(),
         c = d - i.touchStartTime;
       if (t.allowClick) {
         const e = l.path || (l.composedPath && l.composedPath());
@@ -3394,7 +3394,7 @@
             t.emit("doubleTap doubleClick", l);
       }
       if (
-        ((i.lastClickTime = z()),
+        ((i.lastClickTime = $()),
         O(() => {
           t.destroyed || (t.allowClick = !0);
         }),
@@ -3845,8 +3845,8 @@
                 W({ swiper: i, runCallbacks: e, direction: t, step: "End" }));
           },
         },
-        slide: j,
-        loop: Y,
+        slide: Y,
+        loop: j,
         grabCursor: {
           setGrabCursor: function (e) {
             const t = this;
@@ -4042,7 +4042,7 @@
               startTranslate: void 0,
               allowThresholdMove: void 0,
               focusableElements: o.params.focusableElements,
-              lastClickTime: z(),
+              lastClickTime: $(),
               clickTimeout: void 0,
               velocities: [],
               allowMomentumBounce: void 0,
@@ -5285,14 +5285,14 @@
       Ie = "lgUpdateSlides",
       Le = "lgAfterAppendSubHtml",
       Oe = "lgBeforeOpen",
-      ze = "lgAfterOpen",
-      $e = "lgSlideItemLoad",
+      $e = "lgAfterOpen",
+      ze = "lgSlideItemLoad",
       Me = "lgBeforeSlide",
-      Pe = "lgAfterSlide",
+      ke = "lgAfterSlide",
       Ae = "lgPosterClick",
-      ke = "lgDragStart",
-      De = "lgDragMove",
-      Be = "lgDragEnd",
+      Pe = "lgDragStart",
+      Be = "lgDragMove",
+      De = "lgDragEnd",
       Ge = "lgBeforeNextSlide",
       Fe = "lgBeforePrevSlide",
       Ve = "lgBeforeClose",
@@ -5732,7 +5732,7 @@
             return e[1].toUpperCase();
           }));
     }
-    var je = function (e, t, i, s) {
+    var Ye = function (e, t, i, s) {
         void 0 === i && (i = 0);
         var n = qe(e).attr("data-lg-size") || s;
         if (n) {
@@ -5757,7 +5757,7 @@
           return { width: c * f, height: u * f };
         }
       },
-      Ye = function (e, t, i, s, n) {
+      je = function (e, t, i, s, n) {
         if (n) {
           var o = qe(e).find("img").first();
           if (o.get()) {
@@ -6217,7 +6217,7 @@
                 i = t.top,
                 s = t.bottom;
               if (
-                ((this.currentImageSize = je(
+                ((this.currentImageSize = Ye(
                   this.items[this.index],
                   this.outer,
                   i + s,
@@ -6307,13 +6307,13 @@
               var d = this.galleryItems[e].__slideVideoInfo;
               this.zoomFromOrigin &&
                 t &&
-                ((this.currentImageSize = je(
+                ((this.currentImageSize = Ye(
                   t,
                   this.outer,
                   a + l,
                   d && this.settings.videoMaxSize
                 )),
-                (o = Ye(t, this.outer, a, l, this.currentImageSize))),
+                (o = je(t, this.outer, a, l, this.currentImageSize))),
                 (this.zoomFromOrigin && o) ||
                   (this.outer.addClass(this.settings.startClass),
                   this.getSlideItem(e).removeClass("lg-complete"));
@@ -6354,7 +6354,7 @@
                         i.outer.addClass("lg-visible");
                       }, i.settings.backdropDuration),
                     i.slide(e, !1, !1, !1),
-                    i.LGel.trigger(ze);
+                    i.LGel.trigger($e);
                 }),
                 document.body === this.settings.container &&
                   qe("html").addClass("lg-on");
@@ -6563,7 +6563,7 @@
               a = n && "video" === this.getSlideType(r) && !r.poster ? s : 0;
             setTimeout(function () {
               e.addClass("lg-complete lg-complete_"),
-                o.LGel.trigger($e, {
+                o.LGel.trigger(ze, {
                   index: t,
                   delay: i || 0,
                   isFirstSlide: n,
@@ -6623,7 +6623,7 @@
                 var y = this.mediaContainerPosition,
                   b = y.top,
                   w = y.bottom,
-                  S = je(
+                  S = Ye(
                     this.items[e],
                     this.outer,
                     b + w,
@@ -6864,7 +6864,7 @@
                   var u = this.mediaContainerPosition,
                     h = u.top,
                     p = u.bottom,
-                    g = je(
+                    g = Ye(
                       this.items[e],
                       this.outer,
                       h + p,
@@ -6913,7 +6913,7 @@
                   setTimeout(function () {
                     (n.lgBusy = !1),
                       l.removeClass("lg-slide-progress"),
-                      n.LGel.trigger(Pe, {
+                      n.LGel.trigger(ke, {
                         prevIndex: o,
                         index: e,
                         fromTouch: t,
@@ -7092,7 +7092,7 @@
                       (e.outer.get().scrollLeft += 1),
                       (e.outer.get().scrollLeft -= 1),
                       e.outer.removeClass("lg-grab").addClass("lg-grabbing"),
-                      e.LGel.trigger(ke))));
+                      e.LGel.trigger(Pe))));
               }),
               qe(window).on("mousemove.lg.global" + this.lgId, function (o) {
                 s &&
@@ -7100,13 +7100,13 @@
                   ((n = !0),
                   (i = { pageX: o.pageX, pageY: o.pageY }),
                   e.touchMove(t, i),
-                  e.LGel.trigger(De));
+                  e.LGel.trigger(Be));
               }),
               qe(window).on("mouseup.lg.global" + this.lgId, function (o) {
                 if (e.lgOpened) {
                   var r = qe(o.target);
                   n
-                    ? ((n = !1), e.touchEnd(i, t, o), e.LGel.trigger(Be))
+                    ? ((n = !1), e.touchEnd(i, t, o), e.LGel.trigger(De))
                     : e.isPosterElement(r) && e.LGel.trigger(Ae),
                     s &&
                       ((s = !1),
@@ -7311,13 +7311,13 @@
                 a = this.galleryItems[this.index],
                 l = a.__slideVideoInfo,
                 d = a.poster,
-                c = je(
+                c = Ye(
                   s,
                   this.outer,
                   o + r,
                   l && d && this.settings.videoMaxSize
                 );
-              i = Ye(s, this.outer, o, r, c);
+              i = je(s, this.outer, o, r, c);
             }
             this.zoomFromOrigin && i
               ? (this.outer.addClass("lg-closing lg-zoom-from-image"),
@@ -8297,7 +8297,7 @@
       It = "lgRotateRight",
       Lt = "lgFlipHorizontal",
       Ot = "lgFlipVertical",
-      zt = {
+      $t = {
         rotate: !0,
         rotateSpeed: 400,
         rotateLeft: !0,
@@ -8311,12 +8311,12 @@
           rotateRight: "Rotate right",
         },
       },
-      $t = (function () {
+      zt = (function () {
         function e(e, t) {
           return (
             (this.core = e),
             (this.$LG = t),
-            (this.settings = xt(xt({}, zt), this.core.settings)),
+            (this.settings = xt(xt({}, $t), this.core.settings)),
             this
           );
         }
@@ -8490,10 +8490,10 @@
           e
         );
       })();
-    const Mt = $t,
-      Pt = document.querySelectorAll("[data-gallery]");
-    Pt.length &&
-      Pt.forEach((e) => {
+    const Mt = zt,
+      kt = document.querySelectorAll("[data-gallery]");
+    kt.length &&
+      kt.forEach((e) => {
         e.addEventListener("lgInit", (e) => {
           console.log(e);
         }),
@@ -8517,9 +8517,9 @@
         };
       })();
     var At = "slider__item_active",
-      kt = "slider__control_show",
-      Dt = "slider__indicators",
-      Bt = "slider__indicator",
+      Pt = "slider__control_show",
+      Bt = "slider__indicators",
+      Dt = "slider__indicator",
       Gt = "slider__indicator_active",
       Ft = "transition-none";
     function Vt(e, t) {
@@ -8581,13 +8581,13 @@
       var o = this._$root.querySelectorAll(".slider__control");
       if (o.length)
         if (this._config.loop)
-          for (e = 0, t = o.length; e < t; e++) o[e].classList.add(kt);
+          for (e = 0, t = o.length; e < t; e++) o[e].classList.add(Pt);
         else
           0 === this._currentIndex
-            ? (o[0].classList.remove(kt), o[1].classList.add(kt))
+            ? (o[0].classList.remove(Pt), o[1].classList.add(Pt))
             : this._currentIndex === this._$itemList.length - 1
-            ? (o[0].classList.add(kt), o[1].classList.remove(kt))
-            : (o[0].classList.add(kt), o[1].classList.add(kt));
+            ? (o[0].classList.add(Pt), o[1].classList.remove(Pt))
+            : (o[0].classList.add(Pt), o[1].classList.add(Pt));
     }),
       (Vt.prototype._move = function () {
         if ("none" === this._direction)
@@ -8639,10 +8639,10 @@
       (Vt.prototype._addIndicators = function () {
         if (!this._$root.querySelector(".slider__indicators")) {
           var e = document.createElement("ol");
-          e.className = Dt;
+          e.className = Bt;
           for (var t = 0, i = this._$itemList.length; t < i; t++) {
             var s = document.createElement("li");
-            (s.className = Bt), (s.dataset.slideTo = t), e.appendChild(s);
+            (s.className = Dt), (s.dataset.slideTo = t), e.appendChild(s);
           }
           this._$root.appendChild(e);
         }
@@ -9134,6 +9134,57 @@
         }
         document.addEventListener("click", e),
           document.addEventListener("watcherCallback", e);
+      })(),
+      (Se = !0),
+      (function () {
+        const e = document.querySelectorAll("[data-sticky]");
+        e.length &&
+          e.forEach((e) => {
+            let t = {
+              top: e.dataset.stickyTop ? parseInt(e.dataset.stickyTop) : 0,
+              bottom: e.dataset.stickyBottom
+                ? parseInt(e.dataset.stickyBottom)
+                : 0,
+              header: e.hasAttribute("data-sticky-header")
+                ? document.querySelector("header.header").offsetHeight
+                : 0,
+            };
+            !(function (e, t) {
+              const i = e.querySelector("[data-sticky-item]"),
+                s = t.header + t.top,
+                n = i.getBoundingClientRect().top + scrollY - s;
+              document.addEventListener("windowScroll", function (o) {
+                const r =
+                  e.offsetHeight +
+                  e.getBoundingClientRect().top +
+                  scrollY -
+                  (s + i.offsetHeight + t.bottom);
+                let a = {
+                  position: "relative",
+                  bottom: "auto",
+                  top: "0px",
+                  left: "0px",
+                  width: "auto",
+                };
+                s + t.bottom + i.offsetHeight < window.innerHeight &&
+                  (scrollY >= n && scrollY <= r
+                    ? ((a.position = "fixed"),
+                      (a.bottom = "auto"),
+                      (a.top = `${s}px`),
+                      (a.left = `${i.getBoundingClientRect().left}px`),
+                      (a.width = `${i.offsetWidth}px`))
+                    : scrollY >= r &&
+                      ((a.position = "absolute"),
+                      (a.bottom = `${t.bottom}px`),
+                      (a.top = "auto"),
+                      (a.left = "0px"),
+                      (a.width = `${i.offsetWidth}px`))),
+                  (function (e, t) {
+                    e.style.cssText = `position:${t.position};bottom:${t.bottom};top:${t.top};left:${t.left};width:${t.width};`;
+                  })(i, a);
+              });
+            })(e, t);
+          });
       })();
   })();
 })();

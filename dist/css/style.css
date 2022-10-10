@@ -286,7 +286,7 @@ textarea:focus {
 .input {
   max-width: 415px;
   background-color: #ffffff;
-  color: rgba(0, 0, 0, 0.4);
+  color: black;
 }
 @media (min-width: 77.5em) {
   .input {
@@ -347,6 +347,9 @@ textarea:focus {
   .input {
     padding-left: 0.6875rem;
   }
+}
+.input:focus {
+  color: black;
 }
 
 textarea.input {
@@ -978,7 +981,7 @@ body.popup-show::after {
   background-color: #FFFFFF;
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 }
 .header__container {
   display: flex;
@@ -1758,15 +1761,19 @@ body.popup-show::after {
   color: #2787F4;
 }
 .footer__back {
-  position: absolute;
+  position: fixed;
   width: 65px;
   height: 65px;
   background-color: #FFFFFF;
   border-radius: 100%;
   right: 15px;
-  bottom: 65%;
+  bottom: 15%;
   cursor: pointer;
   display: inline-block;
+  opacity: 0;
+  z-index: 2;
+  transition: all 0.3s ease 0s;
+  box-shadow: 0px 0px 15px rgba(167, 207, 255, 0.2);
 }
 @media (max-width: 61.99875em) {
   .footer__back {
@@ -1809,30 +1816,9 @@ body.popup-show::after {
     left: 19px;
   }
 }
-.footer__back:before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  height: 75px;
-  width: 75px;
-  background-color: #A7CFFF;
-  opacity: 0.5;
-  filter: blur(14.5px);
-  border-radius: 50%;
-  z-index: -1;
-}
-@media (max-width: 61.99875em) {
-  .footer__back:before {
-    width: 65px;
-    height: 65px;
-  }
-}
-@media (max-width: 29.99875em) {
-  .footer__back:before {
-    width: 55px;
-    height: 55px;
-  }
+
+.column__section._watcher-view .footer__back {
+  opacity: 1;
 }
 
 .icon-map:before {
@@ -3400,9 +3386,7 @@ body.popup-show::after {
   left: -15%;
   background: rgba(255, 255, 255, 0.75);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(2.5px);
   border-radius: 10px;
-  z-index: 1;
 }
 @media (min-width: 77.5em) {
   .cost__block {
@@ -3762,7 +3746,6 @@ body.popup-show::after {
 .about__top-block {
   background: rgba(255, 255, 255, 0.75);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(2.5px);
   border-radius: 10px;
   position: absolute;
   right: -30px;
@@ -4400,7 +4383,7 @@ body.popup-show::after {
   position: absolute;
   width: 53px;
   height: 52px;
-  z-index: -1;
+  z-index: 0;
   right: -5px;
   bottom: -5px;
 }
@@ -4686,47 +4669,6 @@ body.popup-show::after {
 .reviews__body.swiper {
   position: initial !important;
 }
-.reviews__body:after {
-  content: "";
-  position: absolute;
-  top: 75px;
-  left: -15px;
-  width: 50px;
-  height: 50px;
-  background-color: #A7CFFF;
-  border-radius: 10px;
-  z-index: 1;
-}
-@media (max-width: 1300px) {
-  .reviews__body:after {
-    left: 15px;
-    top: 65px;
-  }
-}
-@media (max-width: 61.99875em) {
-  .reviews__body:after {
-    top: 65px;
-    width: 40px;
-    height: 40px;
-  }
-}
-@media (max-width: 47.99875em) {
-  .reviews__body:after {
-    top: 50px;
-  }
-}
-@media (max-width: 550px) {
-  .reviews__body:after {
-    top: 40px;
-  }
-}
-@media (max-width: 29.99875em) {
-  .reviews__body:after {
-    top: 40px;
-    width: 34px;
-    height: 34px;
-  }
-}
 .reviews__body:before {
   content: "";
   position: absolute;
@@ -4734,7 +4676,7 @@ body.popup-show::after {
   left: -2px;
   width: 22px;
   height: 17px;
-  z-index: 2;
+  z-index: 3;
   background-image: url("../img/11_reviews/backtick.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -4769,8 +4711,61 @@ body.popup-show::after {
     background-size: 80%;
   }
 }
+.reviews__backtick {
+  position: absolute;
+  top: 75px;
+  left: -15px;
+  width: 50px;
+  height: 50px;
+  background-color: #A7CFFF;
+  border-radius: 10px;
+  z-index: 2;
+}
+@media (max-width: 1300px) {
+  .reviews__backtick {
+    left: 15px;
+    top: 65px;
+  }
+}
+@media (max-width: 61.99875em) {
+  .reviews__backtick {
+    top: 65px;
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 47.99875em) {
+  .reviews__backtick {
+    top: 50px;
+  }
+}
+@media (max-width: 550px) {
+  .reviews__backtick {
+    top: 40px;
+  }
+}
+@media (max-width: 29.99875em) {
+  .reviews__backtick {
+    top: 40px;
+    width: 34px;
+    height: 34px;
+  }
+}
+.reviews__backtick:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 13px;
+  top: 16px;
+  background-color: #A7CFFF;
+  opacity: 0.5;
+  filter: blur(14.5px);
+  border-radius: 5px;
+}
 .reviews__swiper {
   position: relative;
+  padding-bottom: 5px;
 }
 .reviews__item {
   background-color: #ffffff;

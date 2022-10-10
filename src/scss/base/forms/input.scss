@@ -15,11 +15,15 @@ textarea {
 .input {
 	max-width: 415px;
 	background-color: $whiteColor;
-	color: rgba(0, 0, 0, .4);
+	color: rgba(0, 0, 0, 1);
 	@include adaptiveValue("padding-top", 13, 11, $containerWidth, $minWidth, 1);
 	@include adaptiveValue("padding-right", 13, 11, $containerWidth, $minWidth, 1);
 	@include adaptiveValue("padding-bottom", 16, 13, $containerWidth, $minWidth, 1);
 	@include adaptiveValue("padding-left", 13, 11, $containerWidth, $minWidth, 1);
+	&:focus {
+		color: rgba(0, 0, 0, 1);
+	}
+
 }
 
 
