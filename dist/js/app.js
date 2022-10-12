@@ -131,32 +131,32 @@
                     .replace(/^\s+/, "")
                     .replace(/\s+$/, ""));
             },
-            M = function (e) {
+            A = function (e) {
               return e.llTempImage;
             },
-            k = function (e, t) {
+            M = function (e, t) {
               if (t) {
                 var i = t._observer;
                 i && i.unobserve(e);
               }
             },
-            A = function (e, t) {
+            k = function (e, t) {
               e && (e.loadingCount += t);
             },
             P = function (e, t) {
               e && (e.toLoadCount = t);
             },
-            B = function (e) {
+            D = function (e) {
               for (var t, i = [], s = 0; (t = e.children[s]); s += 1)
                 "SOURCE" === t.tagName && i.push(t);
               return i;
             },
-            D = function (e, t) {
+            B = function (e, t) {
               var i = e.parentNode;
-              i && "PICTURE" === i.tagName && B(i).forEach(t);
+              i && "PICTURE" === i.tagName && D(i).forEach(t);
             },
             G = function (e, t) {
-              B(e).forEach(t);
+              D(e).forEach(t);
             },
             F = [d],
             V = [d, h],
@@ -171,7 +171,7 @@
             X = function (e) {
               return delete e[p];
             },
-            W = function (e, t) {
+            Y = function (e, t) {
               if (!R(e)) {
                 var i = {};
                 t.forEach(function (t) {
@@ -180,7 +180,7 @@
                   (e[p] = i);
               }
             },
-            Y = function (e, t) {
+            W = function (e, t) {
               if (R(e)) {
                 var i = q(e);
                 t.forEach(function (t) {
@@ -193,7 +193,7 @@
             j = function (e, t, i) {
               $(e, t.class_loading),
                 E(e, m),
-                i && (A(i, 1), O(t.callback_loading, e, i));
+                i && (k(i, 1), O(t.callback_loading, e, i));
             },
             Z = function (e, t, i) {
               i && e.setAttribute(t, i);
@@ -205,26 +205,26 @@
             },
             K = {
               IMG: function (e, t) {
-                D(e, function (e) {
-                  W(e, H), U(e, t);
+                B(e, function (e) {
+                  Y(e, H), U(e, t);
                 }),
-                  W(e, H),
+                  Y(e, H),
                   U(e, t);
               },
               IFRAME: function (e, t) {
-                W(e, F), Z(e, d, C(e, t.data_src));
+                Y(e, F), Z(e, d, C(e, t.data_src));
               },
               VIDEO: function (e, t) {
                 G(e, function (e) {
-                  W(e, F), Z(e, d, C(e, t.data_src));
+                  Y(e, F), Z(e, d, C(e, t.data_src));
                 }),
-                  W(e, V),
+                  Y(e, V),
                   Z(e, h, C(e, t.data_poster)),
                   Z(e, d, C(e, t.data_src)),
                   e.load();
               },
               OBJECT: function (e, t) {
-                W(e, N), Z(e, g, C(e, t.data_src));
+                Y(e, N), Z(e, g, C(e, t.data_src));
               },
             },
             Q = ["IMG", "IFRAME", "VIDEO", "OBJECT"],
@@ -261,15 +261,15 @@
               !(function (e) {
                 delete e.llTempImage;
               })(e),
-                A(i, -1),
+                k(i, -1),
                 (function (e) {
                   e && (e.toLoadCount -= 1);
                 })(i),
                 z(e, t.class_loading),
-                t.unobserve_completed && k(e, i);
+                t.unobserve_completed && M(e, i);
             },
             oe = function (e, t, i) {
-              var s = M(e) || e;
+              var s = A(e) || e;
               ie(s) ||
                 (function (e, t, i) {
                   ie(e) || (e.llEvLisnrs = {});
@@ -315,7 +315,7 @@
                     r = o && n ? n : s;
                   r &&
                     ((e.style.backgroundImage = 'url("'.concat(r, '")')),
-                    M(e).setAttribute(d, r),
+                    A(e).setAttribute(d, r),
                     j(e, t, i));
                 })(e, t, i),
                 (function (e, t, i) {
@@ -328,7 +328,7 @@
                       $(e, t.class_applied),
                         E(e, v),
                         i &&
-                          (t.unobserve_completed && k(e, t),
+                          (t.unobserve_completed && M(e, t),
                           O(t.callback_applied, e, i));
                     })(e, t, i));
                 })(e, t, i);
@@ -350,25 +350,25 @@
               e.removeAttribute(d), e.removeAttribute(c), e.removeAttribute(u);
             },
             de = function (e) {
-              D(e, function (e) {
-                Y(e, H);
+              B(e, function (e) {
+                W(e, H);
               }),
-                Y(e, H);
+                W(e, H);
             },
             ce = {
               IMG: de,
               IFRAME: function (e) {
-                Y(e, F);
+                W(e, F);
               },
               VIDEO: function (e) {
                 G(e, function (e) {
-                  Y(e, F);
+                  W(e, F);
                 }),
-                  Y(e, V),
+                  W(e, V),
                   e.load();
               },
               OBJECT: function (e) {
-                Y(e, N);
+                W(e, N);
               },
             },
             ue = function (e, t) {
@@ -413,7 +413,7 @@
                         $(e, i.class_entered),
                         z(e, i.class_exited),
                         (function (e, t, i) {
-                          t.unobserve_entered && k(e, i);
+                          t.unobserve_entered && M(e, i);
                         })(e, i, s),
                         O(i.callback_enter, e, t, s),
                         n || ae(e, i, s);
@@ -429,14 +429,14 @@
                             "IMG" === e.tagName &&
                             (se(e),
                             (function (e) {
-                              D(e, function (e) {
+                              B(e, function (e) {
                                 le(e);
                               }),
                                 le(e);
                             })(e),
                             de(e),
                             z(e, i.class_loading),
-                            A(s, -1),
+                            k(s, -1),
                             T(e),
                             O(i.callback_cancel, e, t, s));
                         })(e, t, i, s),
@@ -543,7 +543,7 @@
                 var t = this,
                   i = this._settings;
                 ye(e, i).forEach(function (e) {
-                  k(e, t), ae(e, i, t);
+                  M(e, t), ae(e, i, t);
                 });
               },
               restoreAll: function () {
@@ -750,7 +750,7 @@
           this.options.init && this.initPopups();
       }
       initPopups() {
-        this.popupLogging("Проснулся"), this.eventsPopup();
+        this.eventsPopup();
       }
       eventsPopup() {
         document.addEventListener(
@@ -872,8 +872,7 @@
             }, 50),
             document.dispatchEvent(
               new CustomEvent("afterPopupOpen", { detail: { popup: this } })
-            ),
-            this.popupLogging("Открыл попап");
+            );
         } else
           this.popupLogging(
             "Ой ой, такого попапа нет. Проверьте корректность ввода. "
@@ -911,8 +910,7 @@
             this.options.on.afterClose(this),
             setTimeout(() => {
               this._focusTrap();
-            }, 50),
-            this.popupLogging("Закрыл попап"));
+            }, 50));
       }
       _getHash() {
         this.options.hashSettings.location &&
@@ -1089,14 +1087,14 @@
     let h = (e, t = !1, i = 500, s = 0) => {
       const n = document.querySelector(e);
       if (n) {
-        let o = "",
-          r = 0;
+        let e = "",
+          o = 0;
         t &&
-          ((o = "header.header"), (r = document.querySelector(o).offsetHeight));
-        let a = {
+          ((e = "header.header"), (o = document.querySelector(e).offsetHeight));
+        let r = {
           speedAsDuration: !0,
           speed: i,
-          header: o,
+          header: e,
           offset: s,
           easing: "easeOutQuad",
         };
@@ -1105,13 +1103,12 @@
             (d(), document.documentElement.classList.remove("menu-open")),
           "undefined" != typeof SmoothScroll)
         )
-          new SmoothScroll().animateScroll(n, "", a);
+          new SmoothScroll().animateScroll(n, "", r);
         else {
           let e = n.getBoundingClientRect().top + scrollY;
-          window.scrollTo({ top: r ? e - r : e, behavior: "smooth" });
+          window.scrollTo({ top: o ? e - o : e, behavior: "smooth" });
         }
-        u(`[gotoBlock]: Юхуу...едем к ${e}`);
-      } else u(`[gotoBlock]: Ой ой..Такого блока нет на странице: ${e}`);
+      }
     };
     const p = { selectModule: null };
     let g = {
@@ -1846,7 +1843,7 @@
         n || 0
       );
     }
-    function M(e) {
+    function A(e) {
       return (
         "object" == typeof e &&
         null !== e &&
@@ -1854,29 +1851,29 @@
         "Object" === Object.prototype.toString.call(e).slice(8, -1)
       );
     }
-    function k(e) {
+    function M(e) {
       return "undefined" != typeof window && void 0 !== window.HTMLElement
         ? e instanceof HTMLElement
         : e && (1 === e.nodeType || 11 === e.nodeType);
     }
-    function A() {
+    function k() {
       const e = Object(arguments.length <= 0 ? void 0 : arguments[0]),
         t = ["__proto__", "constructor", "prototype"];
       for (let i = 1; i < arguments.length; i += 1) {
         const s = i < 0 || arguments.length <= i ? void 0 : arguments[i];
-        if (null != s && !k(s)) {
+        if (null != s && !M(s)) {
           const i = Object.keys(Object(s)).filter((e) => t.indexOf(e) < 0);
           for (let t = 0, n = i.length; t < n; t += 1) {
             const n = i[t],
               o = Object.getOwnPropertyDescriptor(s, n);
             void 0 !== o &&
               o.enumerable &&
-              (M(e[n]) && M(s[n])
+              (A(e[n]) && A(s[n])
                 ? s[n].__swiper__
                   ? (e[n] = s[n])
-                  : A(e[n], s[n])
-                : !M(e[n]) && M(s[n])
-                ? ((e[n] = {}), s[n].__swiper__ ? (e[n] = s[n]) : A(e[n], s[n]))
+                  : k(e[n], s[n])
+                : !A(e[n]) && A(s[n])
+                ? ((e[n] = {}), s[n].__swiper__ ? (e[n] = s[n]) : k(e[n], s[n]))
                 : (e[n] = s[n]));
           }
         }
@@ -1886,7 +1883,7 @@
     function P(e, t, i) {
       e.style.setProperty(t, i);
     }
-    function B(e) {
+    function D(e) {
       let { swiper: t, targetPosition: i, side: s } = e;
       const n = w(),
         o = -t.translate;
@@ -1916,11 +1913,11 @@
         };
       u();
     }
-    let D, G, F;
+    let B, G, F;
     function V() {
       return (
-        D ||
-          (D = (function () {
+        B ||
+          (B = (function () {
             const e = w(),
               t = y();
             return {
@@ -1946,7 +1943,7 @@
               gestures: "ongesturestart" in e,
             };
           })()),
-        D
+        B
       );
     }
     function H(e) {
@@ -2659,7 +2656,7 @@
           else {
             if (!o.support.smoothScroll)
               return (
-                B({ swiper: o, targetPosition: -c, side: e ? "left" : "top" }),
+                D({ swiper: o, targetPosition: -c, side: e ? "left" : "top" }),
                 !0
               );
             a.scrollTo({ [e ? "left" : "top"]: -c, behavior: "smooth" });
@@ -2709,7 +2706,7 @@
         );
       },
     };
-    function W(e) {
+    function Y(e) {
       let { swiper: t, runCallbacks: i, direction: s, step: n } = e;
       const { activeIndex: o, previousIndex: r } = t;
       let a = s;
@@ -2725,7 +2722,7 @@
             : t.emit(`slidePrevTransition${n}`);
       }
     }
-    const Y = {
+    const W = {
       slideTo: function (e, t, i, s, n) {
         if (
           (void 0 === e && (e = 0),
@@ -2821,7 +2818,7 @@
           } else {
             if (!o.support.smoothScroll)
               return (
-                B({ swiper: o, targetPosition: i, side: e ? "left" : "top" }),
+                D({ swiper: o, targetPosition: i, side: e ? "left" : "top" }),
                 !0
               );
             p.scrollTo({ [e ? "left" : "top"]: i, behavior: "smooth" });
@@ -3613,7 +3610,7 @@
             e.emitContainerClasses());
         const h = l.direction && l.direction !== n.direction,
           p = n.loop && (l.slidesPerView !== n.slidesPerView || h);
-        h && i && e.changeDirection(), A(e.params, l);
+        h && i && e.changeDirection(), k(e.params, l);
         const g = e.params.enabled;
         Object.assign(e, {
           allowTouchMove: e.params.allowTouchMove,
@@ -3812,9 +3809,9 @@
                   "enabled" in e[s] ||
                   (e[s].enabled = !0),
                 e[s] || (e[s] = { enabled: !1 }),
-                A(t, i))
-              : A(t, i))
-          : A(t, i);
+                k(t, i))
+              : k(t, i))
+          : k(t, i);
       };
     }
     const ce = {
@@ -3833,7 +3830,7 @@
               { params: s } = i;
             s.cssMode ||
               (s.autoHeight && i.updateAutoHeight(),
-              W({ swiper: i, runCallbacks: e, direction: t, step: "Start" }));
+              Y({ swiper: i, runCallbacks: e, direction: t, step: "Start" }));
           },
           transitionEnd: function (e, t) {
             void 0 === e && (e = !0);
@@ -3842,10 +3839,10 @@
             (i.animating = !1),
               s.cssMode ||
                 (i.setTransition(0),
-                W({ swiper: i, runCallbacks: e, direction: t, step: "End" }));
+                Y({ swiper: i, runCallbacks: e, direction: t, step: "End" }));
           },
         },
-        slide: Y,
+        slide: W,
         loop: j,
         grabCursor: {
           setGrabCursor: function (e) {
@@ -3950,14 +3947,14 @@
             ? (t = s[0])
             : ([e, t] = s),
           t || (t = {}),
-          (t = A({}, t)),
+          (t = k({}, t)),
           e && !t.el && (t.el = e),
           t.el && L(t.el).length > 1)
         ) {
           const e = [];
           return (
             L(t.el).each((i) => {
-              const s = A({}, t, { el: i });
+              const s = k({}, t, { el: i });
               e.push(new he(s));
             }),
             e
@@ -3983,11 +3980,11 @@
             emit: o.emit.bind(o),
           });
         });
-        const a = A({}, le, r);
+        const a = k({}, le, r);
         return (
-          (o.params = A({}, a, ue, t)),
-          (o.originalParams = A({}, o.params)),
-          (o.passedParams = A({}, t)),
+          (o.params = k({}, a, ue, t)),
+          (o.originalParams = k({}, o.params)),
+          (o.passedParams = k({}, t)),
           o.params &&
             o.params.on &&
             Object.keys(o.params.on).forEach((e) => {
@@ -4329,7 +4326,7 @@
         );
       }
       static extendDefaults(e) {
-        A(ue, e);
+        k(ue, e);
       }
       static get extendedDefaults() {
         return ue;
@@ -5161,9 +5158,6 @@
       }
       scrollWatcherConstructor(e) {
         if (e.length) {
-          this.scrollWatcherLogging(
-            `Проснулся, слежу за объектами (${e.length})...`
-          );
           let t = Array.from(e)
             .map(function (e) {
               return `${
@@ -5227,20 +5221,13 @@
       }
       scrollWatcherIntersecting(e, t) {
         e.isIntersecting
-          ? (!t.classList.contains("_watcher-view") &&
-              t.classList.add("_watcher-view"),
-            this.scrollWatcherLogging(
-              `Я вижу ${t.classList}, добавил класс _watcher-view`
-            ))
-          : (t.classList.contains("_watcher-view") &&
-              t.classList.remove("_watcher-view"),
-            this.scrollWatcherLogging(
-              `Я не вижу ${t.classList}, убрал класс _watcher-view`
-            ));
+          ? !t.classList.contains("_watcher-view") &&
+            t.classList.add("_watcher-view")
+          : t.classList.contains("_watcher-view") &&
+            t.classList.remove("_watcher-view");
       }
       scrollWatcherOff(e, t) {
-        t.unobserve(e),
-          this.scrollWatcherLogging(`Я перестал следить за ${e.classList}`);
+        t.unobserve(e);
       }
       scrollWatcherLogging(e) {
         this.config.logging && u(`[Наблюдатель]: ${e}`);
@@ -5287,12 +5274,12 @@
       Oe = "lgBeforeOpen",
       $e = "lgAfterOpen",
       ze = "lgSlideItemLoad",
-      Me = "lgBeforeSlide",
-      ke = "lgAfterSlide",
-      Ae = "lgPosterClick",
+      Ae = "lgBeforeSlide",
+      Me = "lgAfterSlide",
+      ke = "lgPosterClick",
       Pe = "lgDragStart",
-      Be = "lgDragMove",
-      De = "lgDragEnd",
+      De = "lgDragMove",
+      Be = "lgDragEnd",
       Ge = "lgBeforeNextSlide",
       Fe = "lgBeforePrevSlide",
       Ve = "lgBeforeClose",
@@ -5723,7 +5710,7 @@
       "disqusIdentifier",
       "disqusUrl",
     ];
-    function We(e) {
+    function Ye(e) {
       return "href" === e
         ? "src"
         : (e = (e =
@@ -5732,7 +5719,7 @@
             return e[1].toUpperCase();
           }));
     }
-    var Ye = function (e, t, i, s) {
+    var We = function (e, t, i, s) {
         void 0 === i && (i = 0);
         var n = qe(e).attr("data-lg-size") || s;
         if (n) {
@@ -5891,7 +5878,7 @@
             for (var t = {}, r = 0; r < e.attributes.length; r++) {
               var a = e.attributes[r];
               if (a.specified) {
-                var l = We(a.name),
+                var l = Ye(a.name),
                   d = "";
                 o.indexOf(l) > -1 && (d = l), d && (t[d] = a.value);
               }
@@ -6217,7 +6204,7 @@
                 i = t.top,
                 s = t.bottom;
               if (
-                ((this.currentImageSize = Ye(
+                ((this.currentImageSize = We(
                   this.items[this.index],
                   this.outer,
                   i + s,
@@ -6307,7 +6294,7 @@
               var d = this.galleryItems[e].__slideVideoInfo;
               this.zoomFromOrigin &&
                 t &&
-                ((this.currentImageSize = Ye(
+                ((this.currentImageSize = We(
                   t,
                   this.outer,
                   a + l,
@@ -6623,7 +6610,7 @@
                 var y = this.mediaContainerPosition,
                   b = y.top,
                   w = y.bottom,
-                  S = Ye(
+                  S = We(
                     this.items[e],
                     this.outer,
                     b + w,
@@ -6864,7 +6851,7 @@
                   var u = this.mediaContainerPosition,
                     h = u.top,
                     p = u.bottom,
-                    g = Ye(
+                    g = We(
                       this.items[e],
                       this.outer,
                       h + p,
@@ -6873,7 +6860,7 @@
                   this.resizeVideoSlide(e, g);
                 }
                 if (
-                  (this.LGel.trigger(Me, {
+                  (this.LGel.trigger(Ae, {
                     prevIndex: o,
                     index: e,
                     fromTouch: !!t,
@@ -6913,7 +6900,7 @@
                   setTimeout(function () {
                     (n.lgBusy = !1),
                       l.removeClass("lg-slide-progress"),
-                      n.LGel.trigger(ke, {
+                      n.LGel.trigger(Me, {
                         prevIndex: o,
                         index: e,
                         fromTouch: t,
@@ -7015,7 +7002,7 @@
                   o && Math.abs(e.pageX - t.pageX) < 5)
                 ) {
                   var a = qe(i.target);
-                  n.isPosterElement(a) && n.LGel.trigger(Ae);
+                  n.isPosterElement(a) && n.LGel.trigger(ke);
                 }
                 n.swipeDirection = void 0;
               }),
@@ -7064,7 +7051,7 @@
                   if (s) (s = !1), e.touchEnd(i, t, o);
                   else if (n) {
                     var r = qe(o.target);
-                    e.isPosterElement(r) && e.LGel.trigger(Ae);
+                    e.isPosterElement(r) && e.LGel.trigger(ke);
                   }
                   (e.touchAction = void 0), (n = !1);
                 }
@@ -7100,14 +7087,14 @@
                   ((n = !0),
                   (i = { pageX: o.pageX, pageY: o.pageY }),
                   e.touchMove(t, i),
-                  e.LGel.trigger(Be));
+                  e.LGel.trigger(De));
               }),
               qe(window).on("mouseup.lg.global" + this.lgId, function (o) {
                 if (e.lgOpened) {
                   var r = qe(o.target);
                   n
-                    ? ((n = !1), e.touchEnd(i, t, o), e.LGel.trigger(De))
-                    : e.isPosterElement(r) && e.LGel.trigger(Ae),
+                    ? ((n = !1), e.touchEnd(i, t, o), e.LGel.trigger(Be))
+                    : e.isPosterElement(r) && e.LGel.trigger(ke),
                     s &&
                       ((s = !1),
                       e.outer.removeClass("lg-grabbing").addClass("lg-grab"));
@@ -7119,7 +7106,7 @@
             this.$inner.on("click.lg", function (t) {
               !e.dragOrSwipeEnabled &&
                 e.isPosterElement(qe(t.target)) &&
-                e.LGel.trigger(Ae);
+                e.LGel.trigger(ke);
             });
           }),
           (e.prototype.manageSwipeClass = function () {
@@ -7311,7 +7298,7 @@
                 a = this.galleryItems[this.index],
                 l = a.__slideVideoInfo,
                 d = a.poster,
-                c = Ye(
+                c = We(
                   s,
                   this.outer,
                   o + r,
@@ -8490,15 +8477,13 @@
           e
         );
       })();
-    const Mt = zt,
-      kt = document.querySelectorAll("[data-gallery]");
-    kt.length &&
-      kt.forEach((e) => {
-        e.addEventListener("lgInit", (e) => {
-          console.log(e);
-        }),
+    const At = zt,
+      Mt = document.querySelectorAll("[data-gallery]");
+    Mt.length &&
+      Mt.forEach((e) => {
+        e.addEventListener("lgInit", (e) => {}),
           ot(e, {
-            plugins: [yt, Ct, Mt],
+            plugins: [yt, Ct, At],
             fullScreen: !0,
             selector: "[data-gallery-item]",
             zoom: !0,
@@ -8516,10 +8501,10 @@
           return i.initCustomEvent(e, t.bubbles, t.cancelable, t.detail), i;
         };
       })();
-    var At = "slider__item_active",
+    var kt = "slider__item_active",
       Pt = "slider__control_show",
-      Bt = "slider__indicators",
-      Dt = "slider__indicator",
+      Dt = "slider__indicators",
+      Bt = "slider__indicator",
       Gt = "slider__indicator_active",
       Ft = "transition-none";
     function Vt(e, t) {
@@ -8568,8 +8553,8 @@
         (i = this._$itemList[e]),
           (s = parseInt(i.dataset.index)),
           this._currentIndex === s
-            ? i.classList.add(At)
-            : i.classList.remove(At);
+            ? i.classList.add(kt)
+            : i.classList.remove(kt);
       var n = this._$root.querySelectorAll(".slider__indicator");
       if (n.length)
         for (e = 0, t = n.length; e < t; e++)
@@ -8639,10 +8624,10 @@
       (Vt.prototype._addIndicators = function () {
         if (!this._$root.querySelector(".slider__indicators")) {
           var e = document.createElement("ol");
-          e.className = Bt;
+          e.className = Dt;
           for (var t = 0, i = this._$itemList.length; t < i; t++) {
             var s = document.createElement("li");
-            (s.className = Dt), (s.dataset.slideTo = t), e.appendChild(s);
+            (s.className = Bt), (s.dataset.slideTo = t), e.appendChild(s);
           }
           this._$root.appendChild(e);
         }
@@ -8915,6 +8900,39 @@
               );
             });
           }))),
+      window.addEventListener("DOMContentLoaded", function () {
+        [].forEach.call(document.querySelectorAll(".tel"), function (e) {
+          var t;
+          function i(e) {
+            e.keyCode && (t = e.keyCode),
+              this.selectionStart < 3 && e.preventDefault();
+            var i = "+7 (___) ___-__-__",
+              s = 0,
+              n = i.replace(/\D/g, ""),
+              o = this.value.replace(/\D/g, ""),
+              r = i.replace(/[_\d]/g, function (e) {
+                return s < o.length ? o.charAt(s++) || n.charAt(s) : e;
+              });
+            -1 != (s = r.indexOf("_")) &&
+              (s < 5 && (s = 3), (r = r.slice(0, s)));
+            var a = i
+              .substr(0, this.value.length)
+              .replace(/_+/g, function (e) {
+                return "\\d{1," + e.length + "}";
+              })
+              .replace(/[+()]/g, "\\$&");
+            (!(a = new RegExp("^" + a + "$")).test(this.value) ||
+              this.value.length < 5 ||
+              (t > 47 && t < 58)) &&
+              (this.value = r),
+              "blur" == e.type && this.value.length < 5 && (this.value = "");
+          }
+          e.addEventListener("input", i, !1),
+            e.addEventListener("focus", i, !1),
+            e.addEventListener("blur", i, !1),
+            e.addEventListener("keydown", i, !1);
+        });
+      }),
       (window.FLS = !0),
       (function (e) {
         let t = new Image();
@@ -9112,11 +9130,7 @@
                 s = i.dataset.goto ? i.dataset.goto : "",
                 n = !!i.hasAttribute("data-goto-header"),
                 o = i.dataset.gotoSpeed ? i.dataset.gotoSpeed : "500";
-              h(s, n, o),
-                (function (e) {
-                  history.pushState("", "", e);
-                })(hash),
-                e.preventDefault();
+              h(s, n, o), e.preventDefault();
             }
           } else if ("watcherCallback" === e.type && e.detail) {
             const t = e.detail.entry,

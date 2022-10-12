@@ -40,7 +40,7 @@ const galleries = document.querySelectorAll('[data-gallery]');
 if (galleries.length) {
 	galleries.forEach(gallery => {
 		gallery.addEventListener('lgInit', (e) => {
-			console.log(e);
+
 		});
 		lightGallery(gallery, {
 			plugins: [lgZoom, lgFullscreen, lgRotate],
